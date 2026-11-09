@@ -54,6 +54,35 @@ type Fail = {
 };
 type Roadmap = { as_of: string; generated: string; lanes: Lane[]; totals: { institutions: number; steps: number } };
 
+
+/**
+ * The daily refresh may publish roadmap.json as a split index ("parts": files each under 400 KB). Each part holds
+ * lanes[id][key] arrays that are concatenated onto the matching lane, parts in order. A file without "parts" (the older
+ * single file) is returned as it is. P-SERVED-BRANCH-DRIFT (a), 9 Nov 2026. - Sion's Tab agent
+ */
+type RoadmapFile = Roadmap & { parts?: string[] };
+async function mergeRoadmapParts(j: RoadmapFile): Promise<Roadmap> {
+  if (!Array.isArray(j.parts) || j.parts.length === 0) return j;
+  const byId = new Map<string, Record<string, unknown>>();
+  for (const l of j.lanes) byId.set(l.id, l as unknown as Record<string, unknown>);
+  const parts = await Promise.all(
+    j.parts.map((p) =>
+      fetch(`/data/${p}?d=${todayIso()}`).then((r) => (r.ok ? r.json() : Promise.reject(r.status))),
+    ),
+  );
+  for (const part of parts as { lanes?: Record<string, Record<string, unknown>> }[]) {
+    for (const [id, keys] of Object.entries(part.lanes ?? {})) {
+      const lane = byId.get(id);
+      if (!lane) continue;
+      for (const [k, v] of Object.entries(keys)) {
+        const cur = lane[k];
+        lane[k] = Array.isArray(cur) && Array.isArray(v) ? cur.concat(v) : v;
+      }
+    }
+  }
+  return j;
+}
+
 const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const DAY = 86400000;
 const ms = (s: string) => Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10));
@@ -863,6 +892,7 @@ export function RoadmapRamps({ preferName }: { preferName?: string }) {
     let off = false;
     fetch(`/data/roadmap.json?d=${todayIso()}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((j: RoadmapFile) => mergeRoadmapParts(j))
       .then((j: Roadmap) => !off && setData(j))
       .catch(() => !off && setFailed(true));
     return () => {
