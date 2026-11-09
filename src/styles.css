@@ -70,3 +70,6 @@
     animation: none;
   }
 }
+
+/* Match shared webapp header alignment without changing hydration order. */
+.ghf-v2 > .ghf-v2-sp { display: none !important; }
