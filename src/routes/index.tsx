@@ -42,6 +42,7 @@ import { Chip, DetailModal, Row, fmtDate } from "@/components/detail-modal";
 import { ArtifactsSheet, CorrSheet, CourtTiles, OptionsSheet, courtInstitutions } from "@/components/court-ready";
 import { DisclosureRecord } from "@/components/disclosure-record";
 import { ArchaeologyTimeline } from "@/components/archaeology-timeline";
+import { PayWalls } from "@/components/paywalls";
 import { RoadmapRamps } from "@/components/roadmap-ramps";
 import {
   VERIFIED_ON,
@@ -429,6 +430,8 @@ function Home() {
       <DisclosureRecord />
 
       <ArchaeologyTimeline />
+
+      <PayWalls />
 
       <DetailModal
         open={sheet !== null}
