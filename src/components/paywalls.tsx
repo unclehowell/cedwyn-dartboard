@@ -4,7 +4,8 @@ import data from "@/data/paywalls.json";
  * Pay walls: fees and paid-copy offers made by bodies in reply to requests, each with its source. None paid.
  * Same shape as the archaeology timeline (a collapsed list). — Sion's Tab agent, 10 Nov 2026
  */
-type Item = { id: string; date: string; body: string; note: string; source: string; url: string | null };
+type Item = { id: string; date: string; body: string; note: string; source: string; url: string | null; free_first?: string; free_basis?: string };
+const FREE: Record<string, [string, string]> = { yes: ["✅", "bg-[#e3f6e6] text-[#17692b]"], no: ["❌", "bg-[#fde6e4] text-[#a1251b]"], "n/a": ["n/a", "bg-[#ececec] text-[#555]"], "not checked": ["?", "bg-[#ececec] text-[#555]"] };
 const D = data as unknown as { generated: string; title: string; note: string; items: Item[] };
 
 export function PayWalls() {
@@ -21,6 +22,13 @@ export function PayWalls() {
             <li key={it.id} className="border-l-2 border-line pl-3">
               <div className="text-xs font-semibold uppercase tracking-wide opacity-70">{it.date}</div>
               <div className="text-sm leading-snug">{it.note}</div>
+              {it.free_first ? (
+                <div className="mt-1 text-xs" title={it.free_basis}>
+                  <span className={`rounded-full px-2 py-0.5 font-semibold ${(FREE[it.free_first] || FREE["not checked"])[1]}`}>
+                    {(FREE[it.free_first] || FREE["not checked"])[0]} free allowance given first: {it.free_first}
+                  </span>
+                </div>
+              ) : null}
               {it.url ? (
                 <a href={it.url} className="text-xs underline opacity-80">
                   {it.source}
