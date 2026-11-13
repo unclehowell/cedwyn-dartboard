@@ -35,7 +35,7 @@ jobs:
           if len(matches) != 1:
               raise SystemExit(f"expected exactly one manifest entry; found {len(matches)}")
           app = matches[0]
-          mode = app.get("mode", "mirror")
+          mode = app.get("mode")
           branch = app.get("old_branch")
           deploy = app.get("deploy")
           if mode not in ("mirror", "split-repo"):
