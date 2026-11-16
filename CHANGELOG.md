@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0] - 2026-11-16
+
+### Updated
+- Updated the Cadw / Welsh Government disclosure lane for the 16 November ATISN 26-0075 response.
+- Separated the still-pending ATISN 26-0010 internal review, the maintained ATISN 27589 refusal, the four permanently retained later files, the six Tir Gofal files on hold, and the three no-information-held search categories.
+- Linked the public archive record and redacted source derivatives; kept the 1988 file destruction date and authority unresolved.
+
+
 ## [0.1.0] - 2026-10-24
 
 ### Improved
