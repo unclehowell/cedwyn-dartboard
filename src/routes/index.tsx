@@ -405,7 +405,7 @@ function Home() {
         ))}
       </div>
 
-      {view === "roadmap" && <RoadmapRamps preferLaneId={roadmapLaneIdForParty(inst.id)} preferInstitution={inst.name} />}
+      {view === "roadmap" && <RoadmapRamps selectionKey={inst.id} preferLaneId={roadmapLaneIdForParty(inst.id)} preferInstitution={inst.name} />}
 
       <section aria-label="Avenues game" hidden={view !== "ladder"}>
         <AvenueGame
