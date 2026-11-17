@@ -216,7 +216,7 @@ export const responseAssessments: ResponseAssessment[] = [
     basis: "The Museum admits no separate search log, file note or internal note setting out the scope rationale was created; it describes the logic applied and confirms that Church Farm records were later supplied and none remain withheld.",
     mitigatingEvidence: "The absence is directly acknowledged and the rationale is described. This is more transparent than a vague “no information held” response.",
     limits: "The missing contemporaneous rationale remains a record gap. It does not by itself show that the scope decision was improper or deliberately concealed.",
-  },,
+  },
 
   {
     id: "heneb-2026-10-06-source-file-reply",
