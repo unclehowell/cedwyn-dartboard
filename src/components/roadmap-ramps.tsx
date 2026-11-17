@@ -908,6 +908,7 @@ export function RoadmapRamps({ selectionKey, preferLaneId, preferInstitution }: 
   }, [data]);
 
   useEffect(() => {
+    setManualLane(null);
     setHit(null);
     setFcOpen(false);
     setFcBoard(false);
