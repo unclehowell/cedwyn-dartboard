@@ -863,10 +863,11 @@ function upcoming(lanes: Lane[], todayStr: string): Up[] {
 }
 
 /* ---------- component ---------- */
-export function RoadmapRamps({ preferLaneId, preferInstitution }: { preferLaneId: string | null; preferInstitution: string }) {
+export function RoadmapRamps({ selectionKey, preferLaneId, preferInstitution }: { selectionKey: string; preferLaneId: string | null; preferInstitution: string }) {
   const [data, setData] = useState<Roadmap | null>(null);
   const [failed, setFailed] = useState(false);
-  const [laneId, setLaneId] = useState<string | null>(null);
+  const [manualLane, setManualLane] = useState<{ selectionKey: string; id: string } | null>(null);
+  const laneId = manualLane?.selectionKey === selectionKey ? manualLane.id : preferLaneId;
   const [hit, setHit] = useState<Hit | null>(null);
   const [todayStr, setTodayStr] = useState<string | null>(null);
   const [all, setAll] = useState(false);
@@ -907,13 +908,10 @@ export function RoadmapRamps({ preferLaneId, preferInstitution }: { preferLaneId
   }, [data]);
 
   useEffect(() => {
-    if (!lanes.length) return;
-    const next = preferLaneId && lanes.some((l) => l.id === preferLaneId) ? preferLaneId : null;
-    setLaneId(next);
     setHit(null);
     setFcOpen(false);
     setFcBoard(false);
-  }, [lanes, preferLaneId]);
+  }, [selectionKey]);
 
   const lane = lanes.find((l) => l.id === laneId) ?? null;
   const L = useMemo(() => (lane && todayStr ? layout(lane, ms(todayStr)) : null), [lane, todayStr]);
@@ -996,7 +994,7 @@ export function RoadmapRamps({ preferLaneId, preferInstitution }: { preferLaneId
   };
 
   const pick = (id: string) => {
-    setLaneId(id);
+    setManualLane({ selectionKey, id });
     setHit(null);
     setFcOpen(false);
     setFcBoard(false);
