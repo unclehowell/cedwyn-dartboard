@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Updated
+- Record the National Library of Wales's 17 November 2026 response on the two 1974 Report Wales recordings; preserve the conflicting FOI/2026/16 and FOI/2026/17 references, link both catalogue entries, and keep the separate preservation action visibly unresolved.
+
+
 ## [0.1.0] - 2026-10-24
 
 ### Improved
