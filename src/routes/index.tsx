@@ -320,18 +320,47 @@ function RampRoadmap({ inst }: { inst: AvInstitution }) {
   );
 }
 
-/** Dartboard institution names → roadmap lane names (the manifest's wording). */
-function roadmapName(name: string) {
-  const n = name.toLowerCase();
-  if (n.includes("land registry")) return "HM Land Registry";
-  if (n.includes("cadw") || n.includes("welsh government")) return "Welsh Government / Cadw";
-  if (n.includes("south wales police")) return "South Wales Police";
-  if (n.includes("llandough")) return "Llandough Community Council";
-  if (n.includes("vale of glamorgan")) return "Vale of Glamorgan Council";
-  if (n.includes("national archives")) return "The National Archives";
-  if (n.includes("hmcts") || n.includes("courts")) return "Ministry of Justice / HMCTS";
-  if (n.includes("glamorgan archives")) return "Glamorgan Archives";
-  return name;
+/**
+ * Disclosure-wheel party IDs → canonical roadmap lane IDs.
+ * A party with no matching institutional route is deliberately mapped to null:
+ * never leave the previous body roadmap on screen as a silent substitute.
+ */
+const ROADMAP_LANE_BY_PARTY: Record<string, string | null> = {
+  llandough: "llandough-community-council",
+  "vale-foi": "vale-of-glamorgan-council",
+  "vale-scrutiny": "vale-of-glamorgan-council-scrutiny",
+  swp: "south-wales-police",
+  glamorgan: "glamorgan-archives",
+  "cardiff-reg": "cardiff-vale-register-office",
+  museum: "amgueddfa-cymru-museum-wales",
+  nlw: "national-library-of-wales",
+  rcahmw: "rcahmw-royal-commission",
+  cadw: "welsh-government-cadw",
+  "wales-office": "wales-office",
+  tna: "the-national-archives",
+  hmlr: "hm-land-registry",
+  mod: "ministry-of-defence",
+  nactso: "counter-terrorism-policing-nactso",
+  moj: "ministry-of-justice-hmcts",
+  mp: "member-of-parliament-vale-of-glamorgan",
+  cotswold: "cotswold-archaeology",
+  linklaters: "linklaters",
+  itv: "itv-archive",
+  "dwr-cymru": "dwr-cymru-welsh-water",
+  heneb: "heneb-formerly-ggat-historic-environment-record",
+  bp: "bp",
+  cps: "crown-prosecution-service",
+  family: null,
+  defra: "defra",
+  "historic-england": "historic-england",
+  "ordnance-survey": "ordnance-survey",
+  nrw: "natural-resources-wales",
+  "companies-house": "companies-house",
+  "forest-of-cardiff": "forest-of-cardiff-registered-charity",
+};
+
+function roadmapLaneIdForParty(partyId: string): string | null {
+  return ROADMAP_LANE_BY_PARTY[partyId] ?? null;
 }
 
 function Home() {
@@ -376,7 +405,7 @@ function Home() {
         ))}
       </div>
 
-      {view === "roadmap" && <RoadmapRamps preferName={roadmapName(inst.name)} />}
+      {view === "roadmap" && <RoadmapRamps preferLaneId={roadmapLaneIdForParty(inst.id)} preferInstitution={inst.name} />}
 
       <section aria-label="Avenues game" hidden={view !== "ladder"}>
         <AvenueGame
