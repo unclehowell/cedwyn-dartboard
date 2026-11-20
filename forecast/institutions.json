@@ -83,7 +83,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -92,7 +92,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 5
     },
     {
@@ -357,7 +357,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -366,7 +366,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 6
     },
     {
@@ -575,7 +575,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -584,7 +584,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 4
     },
     {
@@ -759,7 +759,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -768,7 +768,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 4
     },
     {
@@ -852,7 +852,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -861,7 +861,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 4
     },
     {
@@ -1131,7 +1131,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -1140,7 +1140,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 5
     },
     {
@@ -1377,7 +1377,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -1386,7 +1386,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 4
     },
     {
@@ -1564,7 +1564,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -1573,7 +1573,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -1890,7 +1890,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -1899,7 +1899,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -2138,7 +2138,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -2147,7 +2147,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -2386,7 +2386,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -2395,7 +2395,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 4
     },
     {
@@ -2647,7 +2647,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -2656,7 +2656,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 5
     },
     {
@@ -2971,7 +2971,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -2980,7 +2980,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -3204,7 +3204,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -3213,7 +3213,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -3467,7 +3467,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -3476,7 +3476,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 6
     },
     {
@@ -3695,7 +3695,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -3704,7 +3704,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -4050,7 +4050,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -4059,7 +4059,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -4298,7 +4298,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -4307,7 +4307,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -4579,7 +4579,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -4588,7 +4588,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 4
     },
     {
@@ -4656,7 +4656,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -4665,7 +4665,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -4933,7 +4933,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -4942,7 +4942,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 6
     },
     {
@@ -5242,7 +5242,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -5251,7 +5251,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -5680,7 +5680,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -5689,7 +5689,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -5882,7 +5882,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -5891,7 +5891,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -6084,7 +6084,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -6093,7 +6093,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -6286,7 +6286,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -6295,7 +6295,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -6765,7 +6765,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -6774,7 +6774,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 6
     },
     {
@@ -7026,7 +7026,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -7035,7 +7035,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 5
     },
     {
@@ -7352,7 +7352,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -7361,7 +7361,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -7553,7 +7553,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -7562,7 +7562,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -7799,7 +7799,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -7808,7 +7808,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -8047,7 +8047,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -8056,7 +8056,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -8297,7 +8297,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -8306,7 +8306,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -8669,7 +8669,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -8678,7 +8678,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -9011,7 +9011,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -9020,7 +9020,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -9243,7 +9243,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -9252,7 +9252,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -9571,7 +9571,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -9580,7 +9580,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -9836,7 +9836,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -9845,7 +9845,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 4
     }
    ],
@@ -9897,7 +9897,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -9906,7 +9906,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -10241,7 +10241,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -10250,7 +10250,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
@@ -10507,7 +10507,7 @@
      "key": "ico",
      "label": "ICO complaint (FOIA s.50)",
      "track": "info",
-     "law": "FOIA s.50 / EIR reg 18; the ICO asks for complaints within 6 weeks of the final response",
+     "law": "FOIA s.50 / EIR reg 18; ICO guidance asks for complaints within six weeks of the final response; this is guidance, not a hard expiry.",
      "src": "https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/",
      "clock": {
       "u": "cm",
@@ -10516,7 +10516,7 @@
      "us": "s.50 complaint",
      "them": "decision notice",
      "inferred": true,
-     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time)",
+     "note": "ICO decision time: 6 months is the board's worst-case assumption (no published statutory time). The six-week complaint point is guidance, not a statutory expiry.",
      "n": 3
     },
     {
