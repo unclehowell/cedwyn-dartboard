@@ -37,10 +37,11 @@ assert.ok(disclosure.institutions.find((i) => i.name === "Amgueddfa Cymru - Muse
 assert.equal(roadmap.as_of, "2026-11-21");
 assert.equal(roadmap.statuses.requester_closed.length > 0, true);
 assert.equal(roadmap.request_summary.requests, 318);
-assert.equal(roadmap.current_position.live_processes.length, 9);
+assert.equal(roadmap.current_position.live_processes.length, 10);
+assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-defence").live_items.some((x) => x.reference === "FOI2026/09019" && x.due === "2026-11-26"));
 assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-justice-hmcts").live_items.some((x) => x.reference === "FOI 261029052" && x.due === "2026-11-26"));
 assert.ok(roadmap.lanes.find((l) => l.id === "counter-terrorism-policing-nactso").live_items.some((x) => x.reference === "FOI 3203/2026" && x.status === "overdue"));
-assert.equal(moj.convs.some((c) => c.reg === "SAR" && c.closure), false);
+assert.equal(disclosure.institutions.find((i) => i.name === "Ministry of Justice / HMCTS").convs.some((c) => c.reg === "SAR" && c.closure), false);
 assert.equal(roadmap.current_position.missing_records.length, 9);
 for (const p of parts) {
   assert.equal(p.as_of, "2026-11-21");
