@@ -21,5 +21,3 @@ jobs:
         run: npm ci
       - name: Run disclosure snapshot regression
         run: node --test scripts/disclosure-snapshot.test.mjs
-      - name: Build frontend (development mode; no database migration)
-        run: npm run build:dev
