@@ -19,7 +19,7 @@ type MissingRecord = string;
 type Inst = { name: string; n: number; cnt: Record<string, number>; convs: Conv[] };
 const D = data as unknown as {
   generated: string; asOf: string; positionAsOf: string; countBasis: string; countNote: string; closureCount: number;
-  classes: string[]; hub: string; closures: Closure[]; liveProcesses: LiveProcess[]; missingRecords: MissingRecord[]; preservationNote: string;
+  classes: string[]; hub: string; closures: Closure[]; liveProcesses: LiveProcess[]; missingRecords: MissingRecord[]; preservationNote: string; noFurtherWithdrawalsInstruction: string;
   totals: { institutions: number; requests: number; sent: number; received: number; attachments: number; met: number; missed: number; pending: number; clocked: number };
   byClass: Record<string, number>; months: { m: string; c: Record<string, number> }[]; institutions: Inst[];
 };
@@ -161,6 +161,7 @@ export function DisclosureRecord() {
         </ul>
         <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-fg">Requester-initiated closures · {D.closureCount} bodies</h4>
         <p className="mt-1 text-xs leading-relaxed text-muted">{D.preservationNote}</p>
+        <p className="mt-1 text-xs leading-relaxed text-muted">{D.noFurtherWithdrawalsInstruction}</p>
         <ul className="mt-1 space-y-1.5">
           {D.closures.map((c) => (
             <li key={c.body} className="text-xs leading-relaxed text-muted">
