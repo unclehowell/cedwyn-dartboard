@@ -36,6 +36,7 @@ export const CLASS: Record<string, { label: string; colour: string; hollow?: boo
   "acknowledgement only": { label: "Acknowledged only", colour: "#b8b0a8" },
   "no reply by deadline": { label: "No reply by deadline", colour: "#ea580c" },
   "no reply": { label: "No reply", colour: "#9ca3af", hollow: true },
+  requester_closed: { label: "Closed by requester", colour: "#64748b" },
 };
 const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const fmt = (s: string) => {
