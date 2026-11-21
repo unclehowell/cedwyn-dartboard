@@ -8,7 +8,7 @@ const disclosure = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.
 const roadmap = JSON.parse(readFileSync(resolve(root, "roadmap.json"), "utf8"));
 const parts = [1, 2, 3].map((n) => JSON.parse(readFileSync(resolve(root, `roadmap-part-${n}.json`), "utf8")));
 
-assert.equal(disclosure.generated, "2026-11-21T12:20:00Z");
+assert.equal(disclosure.generated, "2026-11-21T12:50:00Z");
 assert.equal(disclosure.positionAsOf, "21 Nov 2026");
 assert.equal(disclosure.countBasis, "6 Nov 2026");
 assert.equal(disclosure.totals.requests, 318);
@@ -65,7 +65,7 @@ assert.equal(roadmap.current_position.missing_records.length, 9);
 assert.ok(roadmap.current_position.new_lines_note.includes("do not change the 318"));
 for (const p of parts) {
   assert.equal(p.as_of, "2026-11-21");
-  assert.equal(p.generated, "2026-11-21T12:20:00Z");
+  assert.equal(p.generated, "2026-11-21T12:50:00Z");
 }
 assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-defence").closures.some((c) => c.date === "2026-11-21"));
 console.log("Disclosure snapshot checks passed.");
