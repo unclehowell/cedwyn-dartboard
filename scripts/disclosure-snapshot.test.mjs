@@ -14,6 +14,18 @@ assert.ok(parts.every((part) => part.generated === disclosure.generated));
 assert.equal(disclosure.positionAsOf, "21 Nov 2026");
 assert.equal(disclosure.countBasis, "6 Nov 2026");
 assert.equal(disclosure.totals.requests, 318);
+assert.deepEqual({
+  substantive: disclosure.byClass["substantive disclosure"],
+  partial: disclosure.byClass["partial"],
+  notHeld: disclosure.byClass["not held"],
+  acknowledgementOnly: disclosure.byClass["acknowledgement only"],
+  noReply: disclosure.byClass["no reply"],
+  noReplyByDeadline: disclosure.byClass["no reply by deadline"],
+}, { substantive: 13, partial: 22, notHeld: 39, acknowledgementOnly: 67, noReply: 81, noReplyByDeadline: 3 });
+assert.deepEqual(
+  [disclosure.totals.clocked, disclosure.totals.met, disclosure.totals.missed, disclosure.totals.pending],
+  [96, 35, 9, 31],
+);
 assert.equal(disclosure.totals.institutions, 85);
 assert.equal(disclosure.totals.clocked, 96);
 assert.equal(disclosure.totals.met, 35);
