@@ -39,6 +39,9 @@ assert.ok(disclosure.liveProcesses.some((p) => p.reference === "FOI 3203/2026" &
 assert.ok(disclosure.liveProcesses.some((p) => p.reference === "FOI2026/09019 — internal review" && p.status === "overdue" && p.since === "2026-06-20"));
 assert.ok(disclosure.liveProcesses.some((p) => p.reference === "SAR arising from FOI2026/09019" && p.status === "overdue" && p.since === "2026-09-05"));
 assert.equal(disclosure.liveProcesses.some((p) => p.reference === "FOI2026/25726"), false);
+const modChart = disclosure.institutions.find((i) => i.name === "Ministry of Defence");
+assert.ok(modChart.convs.some((c) => c.ref === "FOI2026/25726" && c.closure?.date === "2026-11-21" && c.c === "acknowledgement only"));
+assert.equal(modChart.convs.some((c) => c.ref === "FOI2026/09019" && c.rd === "2026-10-10"), false);
 assert.ok(disclosure.closures.some((c) => c.body === "Ministry of Defence" && c.laterUpdate?.reference === "FOI2026/25726" && c.laterUpdate.date === "2026-11-21"));
 assert.ok(disclosure.institutions.find((i) => i.name === "Amgueddfa Cymru - Museum Wales").convs.some((c) => c.ref === "FOI 2026-020" && !c.closure));
 assert.equal(roadmap.as_of, "2026-11-21");
