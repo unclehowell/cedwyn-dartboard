@@ -47,6 +47,7 @@ type Lane = {
   requests: { cid: string; ev: string | null; url: string | null; title: string }[];
   route?: string; route_basis?: string; fails?: Fail[];
   closures?: { status: "requester_closed"; date: string; scope: string }[];
+  live_items?: { reference: string; status: string; detail: string; due?: string; since?: string }[];
   duration?: { firstAsk: string; firstSubstance: string; days: string; marker: "✓" | "◐" | "✗"; asOf: string; note: string };
 };
 /** A failure marker from work/failures-ledger: red house = no reply by the due date; red fish = late and/or questions left unanswered. */
@@ -1095,6 +1096,7 @@ export function RoadmapRamps({ preferName }: { preferName?: string }) {
           {lane.counts.red_fish ? <span className="inline-flex items-center gap-1" style={{ color: STATUS.missed.colour }}> · <FishIcon /> {lane.counts.red_fish} late or part-answered</span> : null}
           {lane.route_basis ? <span className="block text-faint">Route: {lane.route_basis} · {lane.steps.length} steps</span> : null}
           {lane.duration ? <span className="block text-faint">Duration: {lane.duration.marker} {lane.duration.days} days · {lane.duration.firstAsk} → {lane.duration.firstSubstance} · {lane.duration.note}</span> : null}
+          {lane.live_items?.map((item, i) => <span key={item.reference + i} className="block text-faint">Live: {item.reference} · {item.status}{item.due ? `, due ${fmt(item.due)}` : ""}{item.since ? `, overdue since ${fmt(item.since)}` : ""} · {item.detail}</span>)}
           {lane.closures?.map((c, i) => <span key={c.date + i} className="block text-faint">Status: requester-closed {fmt(c.date)} · {c.scope}</span>)}
         </p>
       )}
