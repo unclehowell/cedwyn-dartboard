@@ -15,11 +15,12 @@ type Conv = {
 };
 type Closure = { body: string; date: string; status: "requester_closed"; scope: string; laterUpdate?: { date: string; reference: string; status: "requester_closed"; detail: string } };
 type LiveProcess = { body: string; reference: string; status: string; detail: string; due?: string; since?: string };
+type NewLine = { body: string; reference: string; date: string; status: string; detail: string };
 type MissingRecord = string;
 type Inst = { name: string; n: number; cnt: Record<string, number>; convs: Conv[] };
 const D = data as unknown as {
   generated: string; asOf: string; positionAsOf: string; countBasis: string; countNote: string; closureCount: number;
-  classes: string[]; hub: string; closures: Closure[]; liveProcesses: LiveProcess[]; missingRecords: MissingRecord[]; preservationNote: string; noFurtherWithdrawalsInstruction: string;
+  classes: string[]; hub: string; closures: Closure[]; otherClosures: Closure[]; newLines: NewLine[]; liveProcesses: LiveProcess[]; missingRecords: MissingRecord[]; preservationNote: string; noFurtherWithdrawalsInstruction: string;
   totals: { institutions: number; requests: number; sent: number; received: number; attachments: number; met: number; missed: number; pending: number; clocked: number };
   byClass: Record<string, number>; months: { m: string; c: Record<string, number> }[]; institutions: Inst[];
 };
@@ -169,6 +170,27 @@ export function DisclosureRecord() {
               <li key={c.body} className="text-xs leading-relaxed text-muted">
                 <span className="font-semibold text-fg">{c.body} · {fmt(c.date)}</span> — {c.scope}
                 {c.laterUpdate ? ` Later update: ${c.laterUpdate.reference} requester-closed ${fmt(c.laterUpdate.date)}.` : ""}
+              </li>
+            ))}
+          </ul>
+        </details>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">Additional requester-closed tracks (outside the 18-body list) · {D.otherClosures.length}</summary>
+          <ul className="mt-2 space-y-1.5">
+            {D.otherClosures.map((c) => (
+              <li key={c.body} className="text-xs leading-relaxed text-muted">
+                <span className="font-semibold text-fg">{c.body} · {fmt(c.date)}</span> — {c.scope}
+              </li>
+            ))}
+          </ul>
+        </details>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">New lines and post-count updates · {D.newLines.length}</summary>
+          <p className="mt-1 text-xs text-muted">These are shown separately and do not alter the 6 November request/outcome totals.</p>
+          <ul className="mt-2 space-y-1.5">
+            {D.newLines.map((n) => (
+              <li key={n.body + n.reference} className="text-xs leading-relaxed text-muted">
+                <span className="font-semibold text-fg">{n.body} · {n.reference}</span> — {n.status}: {n.detail}
               </li>
             ))}
           </ul>
