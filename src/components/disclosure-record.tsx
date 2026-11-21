@@ -190,7 +190,7 @@ export function DisclosureRecord() {
           <ul className="mt-2 space-y-1.5">
             {D.newLines.map((n) => (
               <li key={n.body + n.reference} className="text-xs leading-relaxed text-muted">
-                <span className="font-semibold text-fg">{n.body} · {n.reference}</span> — {n.status}: {n.detail}
+                <span className="font-semibold text-fg">{n.body} · {n.reference} · {fmt(n.date)}</span> — {n.status}: {n.detail}
               </li>
             ))}
           </ul>
