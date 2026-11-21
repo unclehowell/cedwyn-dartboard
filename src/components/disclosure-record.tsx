@@ -160,21 +160,25 @@ export function DisclosureRecord() {
             </li>
           ))}
         </ul>
-        <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-fg">Requester-initiated closures · {D.closureCount} bodies</h4>
-        <p className="mt-1 text-xs leading-relaxed text-muted">{D.preservationNote}</p>
+        <p className="mt-2 text-xs leading-relaxed text-muted">{D.preservationNote}</p>
         <p className="mt-1 text-xs leading-relaxed text-muted">{D.noFurtherWithdrawalsInstruction}</p>
-        <ul className="mt-1 space-y-1.5">
-          {D.closures.map((c) => (
-            <li key={c.body} className="text-xs leading-relaxed text-muted">
-              <span className="font-semibold text-fg">{c.body} · {fmt(c.date)}</span> — {c.scope}
-              {c.laterUpdate ? ` Later update: ${c.laterUpdate.reference} requester-closed ${fmt(c.laterUpdate.date)}.` : ""}
-            </li>
-          ))}
-        </ul>
-        <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-fg">Records still not produced / unresolved</h4>
-        <ul className="mt-1 space-y-1.5">
-          {D.missingRecords.map((m) => <li key={m} className="text-xs leading-relaxed text-muted">{m}</li>)}
-        </ul>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">Requester-initiated closures · {D.closureCount} bodies</summary>
+          <ul className="mt-2 space-y-1.5">
+            {D.closures.map((c) => (
+              <li key={c.body} className="text-xs leading-relaxed text-muted">
+                <span className="font-semibold text-fg">{c.body} · {fmt(c.date)}</span> — {c.scope}
+                {c.laterUpdate ? ` Later update: ${c.laterUpdate.reference} requester-closed ${fmt(c.laterUpdate.date)}.` : ""}
+              </li>
+            ))}
+          </ul>
+        </details>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">Records still not produced / unresolved · {D.missingRecords.length}</summary>
+          <ul className="mt-2 space-y-1.5">
+            {D.missingRecords.map((m) => <li key={m} className="text-xs leading-relaxed text-muted">{m}</li>)}
+          </ul>
+        </details>
         <p className="mt-2 text-xs text-muted">Requester closure is a separate lifecycle status. It does not change the original outcome colour or erase an earlier statutory-clock result.</p>
       </div>
 
