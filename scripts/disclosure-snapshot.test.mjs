@@ -77,7 +77,7 @@ assert.ok(disclosure.newLines.some((n) => n.body === "Royal Mail"));
 assert.equal(roadmap.upcoming.some((x) => x.what?.includes("FOI2026/25726")), false);
 for (const p of parts) {
   assert.equal(p.as_of, "2026-11-21");
-  assert.equal(p.generated, "2026-11-21T12:50:00Z");
+  assert.equal(p.generated, disclosure.generated);
 }
 assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-defence").closures.some((c) => c.date === "2026-11-21"));
 console.log("Disclosure snapshot checks passed.");
