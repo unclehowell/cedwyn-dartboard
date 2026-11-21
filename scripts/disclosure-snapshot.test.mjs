@@ -41,6 +41,7 @@ assert.ok(disclosure.closures.some((c) => c.body === "Ministry of Defence" && c.
 assert.ok(disclosure.institutions.find((i) => i.name === "Amgueddfa Cymru - Museum Wales").convs.some((c) => c.ref === "FOI 2026-020" && !c.closure));
 assert.equal(roadmap.as_of, "2026-11-21");
 assert.equal(roadmap.statuses.requester_closed.length > 0, true);
+assert.ok(roadmap.statuses.institution_closed);
 assert.equal(roadmap.request_summary.requests, 318);
 assert.equal(roadmap.current_position.live_processes.length, 11);
 assert.equal(roadmap.current_position.additional_closures.length, 2);
@@ -63,6 +64,11 @@ assert.ok(parts[2].lanes["mid-and-west-wales-fire-and-rescue-service"].requests.
 assert.equal(disclosure.institutions.find((i) => i.name === "Ministry of Justice / HMCTS").convs.some((c) => c.reg === "SAR" && c.closure), false);
 assert.equal(roadmap.current_position.missing_records.length, 9);
 assert.ok(roadmap.current_position.new_lines_note.includes("do not change the 318"));
+assert.ok(disclosure.otherClosures.some((c) => c.body === "Ministry of Justice / HMCTS"));
+assert.ok(disclosure.otherClosures.some((c) => c.body === "National Library of Wales"));
+assert.ok(disclosure.newLines.some((n) => n.reference === "FOI2026/36329" && n.status === "invalidity_decision_refinement_invited"));
+assert.ok(disclosure.newLines.some((n) => n.body === "Royal Mail"));
+assert.equal(roadmap.upcoming.some((x) => x.what?.includes("FOI2026/25726")), false);
 for (const p of parts) {
   assert.equal(p.as_of, "2026-11-21");
   assert.equal(p.generated, "2026-11-21T12:50:00Z");
