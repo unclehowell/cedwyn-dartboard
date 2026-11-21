@@ -70,7 +70,7 @@ assert.equal(roadmap.current_position.missing_records.length, 9);
 assert.ok(roadmap.current_position.new_lines_note.includes("do not change the 318"));
 assert.ok(disclosure.otherClosures.some((c) => c.body === "Ministry of Justice / HMCTS"));
 assert.ok(disclosure.otherClosures.some((c) => c.body === "National Library of Wales"));
-assert.ok(disclosure.newLines.some((n) => n.reference === "FOI2026/36329" && n.status === "invalidity_decision_refinement_invited"));
+assert.ok(disclosure.newLines.some((n) => n.reference === "FOI2026/36329" && n.status === "invalidity decision; refinement invited"));
 assert.ok(disclosure.newLines.some((n) => n.body === "Royal Mail"));
 assert.equal(roadmap.upcoming.some((x) => x.what?.includes("FOI2026/25726")), false);
 for (const p of parts) {
