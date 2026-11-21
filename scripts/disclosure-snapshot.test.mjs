@@ -14,6 +14,10 @@ assert.ok(parts.every((part) => part.generated === disclosure.generated));
 assert.equal(disclosure.positionAsOf, "21 Nov 2026");
 assert.equal(disclosure.countBasis, "6 Nov 2026");
 assert.equal(disclosure.totals.requests, 318);
+assert.equal(disclosure.totals.institutions, 85);
+assert.equal(disclosure.totals.attachments, 53);
+assert.equal(disclosure.totals.sent, 543);
+assert.equal(disclosure.totals.received, 533);
 assert.deepEqual({
   substantive: disclosure.byClass["substantive disclosure"],
   partial: disclosure.byClass["partial"],
