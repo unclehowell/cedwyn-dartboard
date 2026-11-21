@@ -1,0 +1,105 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "../public/data");
+const disclosure = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/data/disclosure-record.json"), "utf8"));
+const roadmap = JSON.parse(readFileSync(resolve(root, "roadmap.json"), "utf8"));
+const parts = [1, 2, 3].map((n) => JSON.parse(readFileSync(resolve(root, `roadmap-part-${n}.json`), "utf8")));
+
+assert.ok(disclosure.generated.startsWith("2026-11-21T"));
+assert.equal(roadmap.generated, disclosure.generated);
+assert.ok(parts.every((part) => part.generated === disclosure.generated));
+assert.equal(disclosure.positionAsOf, "21 Nov 2026");
+assert.equal(disclosure.countBasis, "6 Nov 2026");
+assert.equal(disclosure.totals.requests, 318);
+assert.equal(disclosure.totals.institutions, 85);
+assert.equal(disclosure.totals.attachments, 53);
+assert.equal(disclosure.totals.sent, 543);
+assert.equal(disclosure.totals.received, 533);
+assert.deepEqual({
+  substantive: disclosure.byClass["substantive disclosure"],
+  partial: disclosure.byClass["partial"],
+  notHeld: disclosure.byClass["not held"],
+  acknowledgementOnly: disclosure.byClass["acknowledgement only"],
+  noReply: disclosure.byClass["no reply"],
+  noReplyByDeadline: disclosure.byClass["no reply by deadline"],
+}, { substantive: 13, partial: 22, notHeld: 39, acknowledgementOnly: 67, noReply: 81, noReplyByDeadline: 3 });
+assert.deepEqual(
+  [disclosure.totals.clocked, disclosure.totals.met, disclosure.totals.missed, disclosure.totals.pending],
+  [96, 35, 9, 31],
+);
+assert.equal(disclosure.totals.institutions, 85);
+assert.equal(disclosure.totals.clocked, 96);
+assert.equal(disclosure.totals.met, 35);
+assert.equal(disclosure.totals.missed, 9);
+assert.equal(disclosure.totals.pending, 31);
+assert.equal(disclosure.totals.attachments, 53);
+assert.equal(disclosure.byClass["substantive disclosure"], 13);
+assert.equal(disclosure.byClass.partial, 22);
+assert.equal(disclosure.byClass["not held"], 39);
+assert.equal(disclosure.byClass["acknowledgement only"], 67);
+assert.equal(disclosure.byClass["no reply"], 81);
+assert.equal(disclosure.byClass["no reply by deadline"], 3);
+assert.equal(Object.values(disclosure.byClass).reduce((a, b) => a + b, 0), 318);
+assert.equal(disclosure.closures.length, 18);
+assert.equal(disclosure.otherClosures.length, 2);
+assert.equal(disclosure.newLines.length, 8);
+assert.ok(disclosure.noFurtherWithdrawalsInstruction.includes("20 Nov 2026"));
+assert.equal(disclosure.closures.every((c) => c.status === "requester_closed"), true);
+assert.equal(disclosure.classes.includes("requester_closed"), false);
+assert.ok(disclosure.liveProcesses.some((p) => p.reference === "Z084NQV" && p.status === "live"));
+assert.ok(disclosure.liveProcesses.some((p) => p.reference === "FOI 261029052" && p.due === "2026-11-26"));
+assert.ok(disclosure.liveProcesses.some((p) => p.reference === "FOI 3203/2026" && p.status === "overdue"));
+assert.ok(disclosure.liveProcesses.some((p) => p.reference === "FOI2026/09019 — internal review" && p.status === "overdue" && p.since === "2026-06-20"));
+assert.ok(disclosure.liveProcesses.some((p) => p.reference === "SAR arising from FOI2026/09019" && p.status === "overdue" && p.since === "2026-09-05"));
+assert.equal(disclosure.liveProcesses.some((p) => p.reference === "FOI2026/25726"), false);
+const modChart = disclosure.institutions.find((i) => i.name === "Ministry of Defence");
+assert.ok(modChart.convs.some((c) => c.ref === "FOI2026/25726" && c.closure?.date === "2026-11-21" && c.c === "acknowledgement only"));
+assert.equal(modChart.convs.some((c) => c.ref === "FOI2026/09019" && c.rd === "2026-10-10"), false);
+assert.ok(disclosure.closures.some((c) => c.body === "Ministry of Defence" && c.laterUpdate?.reference === "FOI2026/25726" && c.laterUpdate.date === "2026-11-21"));
+assert.ok(disclosure.institutions.find((i) => i.name === "Amgueddfa Cymru - Museum Wales").convs.some((c) => c.ref === "FOI 2026-020" && !c.closure));
+assert.equal(roadmap.as_of, "2026-11-21");
+assert.equal(roadmap.statuses.requester_closed.length > 0, true);
+assert.ok(roadmap.statuses.institution_closed);
+assert.equal(roadmap.request_summary.requests, 318);
+assert.equal(roadmap.totals.institutions, roadmap.lanes.length);
+assert.equal(roadmap.totals.emails, roadmap.lanes.reduce((a, l) => a + (l.counts?.emails || 0), 0));
+assert.equal(roadmap.totals.expected, roadmap.lanes.reduce((a, l) => a + (l.counts?.expected || 0), 0));
+assert.equal(roadmap.totals.missed_deadlines, roadmap.lanes.reduce((a, l) => a + (l.counts?.missed || 0), 0));
+assert.ok(roadmap.totals.email_scope.includes("Lane timeline entries"));
+assert.ok(roadmap.totals.expected_scope.includes("6 November"));
+assert.ok(roadmap.totals.missed_deadlines_scope.includes("6 November"));
+assert.equal(roadmap.current_position.live_processes.length, 11);
+assert.equal(roadmap.current_position.additional_closures.length, 2);
+assert.equal(roadmap.current_position.new_lines.length, 8);
+const modLane = roadmap.lanes.find((l) => l.id === "ministry-of-defence");
+assert.ok(modLane.live_items.some((x) => x.reference === "FOI2026/09019 — internal review" && x.since === "2026-06-20"));
+assert.ok(modLane.live_items.some((x) => x.reference === "SAR arising from FOI2026/09019" && x.since === "2026-09-05"));
+assert.equal(modLane.counts.expected, 2);
+const modRequests = parts[1].lanes["ministry-of-defence"].requests;
+assert.ok(modRequests.some((x) => x.ref === "FOI2026/25726" && x.lifecycle_status === "requester_closed" && x.closed_date === "2026-11-21"));
+assert.ok(modRequests.some((x) => x.ref === "FOI2026/23272" && x.lifecycle_status === "institution_closed" && x.closed_date === "2026-10-29"));
+assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-justice-hmcts").live_items.some((x) => x.reference === "FOI 261029052" && x.due === "2026-11-26"));
+assert.ok(roadmap.lanes.find((l) => l.id === "counter-terrorism-policing-nactso").live_items.some((x) => x.reference === "FOI 3203/2026" && x.status === "overdue"));
+assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-justice-hmcts").closures.some((x) => x.date === "2026-11-19"));
+assert.ok(roadmap.lanes.find((l) => l.id === "national-library-of-wales").closures.some((x) => x.date === "2026-11-19"));
+assert.ok(parts[0].lanes["glamorgan-archives"].requests.some((x) => x.ref === "DBDT123/7; D696" && x.request_date === "2026-11-20"));
+assert.ok(parts[0].lanes["national-library-of-wales"].requests.some((x) => x.response === "partial" && x.first_reply === "2026-11-17"));
+assert.ok(parts[2].lanes["the-postal-museum"].requests.some((x) => x.request_date === "2026-11-20" && x.response === "not held"));
+assert.ok(parts[2].lanes["mid-and-west-wales-fire-and-rescue-service"].requests.some((x) => x.response === "not held" && x.first_reply === "2026-11-20"));
+assert.equal(disclosure.institutions.find((i) => i.name === "Ministry of Justice / HMCTS").convs.some((c) => c.reg === "SAR" && c.closure), false);
+assert.equal(roadmap.current_position.missing_records.length, 9);
+assert.ok(roadmap.current_position.new_lines_note.includes("do not change the 318"));
+assert.ok(disclosure.otherClosures.some((c) => c.body === "Ministry of Justice / HMCTS"));
+assert.ok(disclosure.otherClosures.some((c) => c.body === "National Library of Wales"));
+assert.ok(disclosure.newLines.some((n) => n.reference === "FOI2026/36329" && n.status === "invalidity decision; refinement invited"));
+assert.ok(disclosure.newLines.some((n) => n.body === "Royal Mail"));
+assert.equal(roadmap.upcoming.some((x) => x.what?.includes("FOI2026/25726")), false);
+for (const p of parts) {
+  assert.equal(p.as_of, "2026-11-21");
+  assert.equal(p.generated, disclosure.generated);
+}
+assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-defence").closures.some((c) => c.date === "2026-11-21"));
+console.log("Disclosure snapshot checks passed.");
