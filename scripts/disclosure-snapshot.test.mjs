@@ -26,6 +26,7 @@ assert.equal(disclosure.byClass["no reply"], 81);
 assert.equal(disclosure.byClass["no reply by deadline"], 3);
 assert.equal(Object.values(disclosure.byClass).reduce((a, b) => a + b, 0), 318);
 assert.equal(disclosure.closures.length, 18);
+assert.ok(disclosure.noFurtherWithdrawalsInstruction.includes("20 Nov 2026"));
 assert.equal(disclosure.closures.every((c) => c.status === "requester_closed"), true);
 assert.equal(disclosure.classes.includes("requester_closed"), false);
 assert.ok(disclosure.liveProcesses.some((p) => p.reference === "Z084NQV" && p.status === "live"));
@@ -37,6 +38,9 @@ assert.equal(roadmap.as_of, "2026-11-21");
 assert.equal(roadmap.statuses.requester_closed.length > 0, true);
 assert.equal(roadmap.request_summary.requests, 318);
 assert.equal(roadmap.current_position.live_processes.length, 9);
+assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-justice-hmcts").live_items.some((x) => x.reference === "FOI 261029052" && x.due === "2026-11-26"));
+assert.ok(roadmap.lanes.find((l) => l.id === "counter-terrorism-policing-nactso").live_items.some((x) => x.reference === "FOI 3203/2026" && x.status === "overdue"));
+assert.equal(moj.convs.some((c) => c.reg === "SAR" && c.closure), false);
 assert.equal(roadmap.current_position.missing_records.length, 9);
 for (const p of parts) {
   assert.equal(p.as_of, "2026-11-21");
