@@ -142,8 +142,9 @@ assert.ok(disclosureComponent.includes('"response received; attachments unread"'
 const requestStatus = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../public/data/request-status.json"), "utf8"));
 assert.equal(requestStatus.asOf, "2026-10-21");
 assert.equal(requestStatus.targetedAddendaThrough, "2026-11-24");
-assert.equal(requestStatus.count, 260);
-assert.ok(requestStatus.requests.some((x) => x.refs.includes("F261029") && x.status === "unreviewed" && x.firstReply === "2026-10-23"));
+assert.equal(requestStatus.count, 261);
+assert.ok(requestStatus.requests.some((x) => x.refs.length === 1 && x.refs[0] === "F261029" && x.type === "EIR" && x.status === "unreviewed" && x.firstReply === "2026-10-23"));
+assert.ok(requestStatus.requests.some((x) => x.refs.length === 1 && x.refs[0] === "F261030" && x.type === "FOI" && x.status === "unreviewed" && x.firstReply === "2026-10-23"));
 assert.ok(requestStatus.requests.some((x) => x.refs.includes("WA240304") && x.status === "requester_closed"));
 assert.ok(requestStatus.requests.some((x) => x.refs.includes("261121-7000146") && x.status === "acknowledged_only"));
 assert.ok(requestStatus.requests.some((x) => x.refs.includes("CAS-368638-K3T9L3") && x.firstReply === "2026-11-24"));
