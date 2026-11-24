@@ -139,4 +139,34 @@ assert.ok(tnaLadder.levels.find((x) => x.phase === "enquiry").items.includes(tna
 assert.equal(correspondence.diamonds[String(hmlrReplyIdx)].length, 2);
 const disclosureComponent = readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/components/disclosure-record.tsx"), "utf8");
 assert.ok(disclosureComponent.includes('"response received; attachments unread"'));
+const requestStatus = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../public/data/request-status.json"), "utf8"));
+assert.equal(requestStatus.asOf, "2026-10-21");
+assert.equal(requestStatus.targetedAddendaThrough, "2026-11-24");
+assert.equal(requestStatus.count, 261);
+assert.ok(requestStatus.requests.some((x) => x.refs.length === 1 && x.refs[0] === "F261029" && x.type === "EIR" && x.status === "unreviewed" && x.firstReply === "2026-10-23"));
+assert.ok(requestStatus.requests.some((x) => x.refs.length === 1 && x.refs[0] === "F261030" && x.type === "FOI" && x.status === "unreviewed" && x.firstReply === "2026-10-23"));
+assert.ok(requestStatus.requests.some((x) => x.refs.includes("WA240304") && x.status === "requester_closed"));
+assert.ok(requestStatus.requests.some((x) => x.refs.includes("261121-7000146") && x.status === "acknowledged_only"));
+assert.ok(requestStatus.requests.some((x) => x.refs.includes("CAS-368638-K3T9L3") && x.firstReply === "2026-11-24" && x.status === "info"));
+const trackerSource = readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/data/foi-tracker.ts"), "utf8");
+const trackerSummaryStart = trackerSource.indexOf("{", trackerSource.indexOf("=", trackerSource.indexOf("export const trackerSummary =")));
+const trackerSummaryEnd = trackerSource.indexOf("} as const;", trackerSummaryStart) + 1;
+const trackerSummary = JSON.parse(trackerSource.slice(trackerSummaryStart, trackerSummaryEnd));
+const trackerRowsStart = trackerSource.indexOf("[", trackerSource.indexOf("=", trackerSource.indexOf("export const trackerRows: TrackerRow[] =")));
+const trackerRowsEnd = trackerSource.indexOf("];", trackerRowsStart) + 1;
+const trackerRows = JSON.parse(trackerSource.slice(trackerRowsStart, trackerRowsEnd));
+assert.equal(trackerSummary.targetedAddendaThrough, "2026-11-24");
+assert.equal(trackerSummary.threads, 260);
+assert.equal(trackerSummary.statutoryRequests, 138);
+assert.equal(trackerSummary.emailsSent, 400);
+assert.equal(trackerSummary.repliesReceived, 365);
+assert.equal(trackerSummary.substantiveReplies, 200);
+assert.equal(trackerRows.length, 262);
+assert.ok(trackerRows.some((x) => x.refs.includes("F261029") && x.status === "Response received; attachments unread"));
+assert.ok(trackerRows.some((x) => x.refs.includes("F261030") && x.status === "Response received; attachments unread"));
+assert.ok(trackerRows.some((x) => x.refs.includes("D260928") && x.status === "Response received; attachments unread"));
+assert.ok(trackerRows.some((x) => x.refs.includes("WA240304") && x.status === "Requester-closed"));
+assert.ok(trackerRows.some((x) => x.refs.includes("CAS-368638-K3T9L3") && x.status === "Information received — research guidance"));
+
+
 console.log("Disclosure snapshot checks passed.");

@@ -34,38 +34,41 @@ export type TrackerRow = {
 export type NotableItem = { institution: string; ref: string; status: string; detail: string };
 
 export const trackerSummary = {
-  "generated": "2026-10-19",
+  "generated": "2026-11-24",
   "mailboxThrough": "18 October 2026",
   "institutions": 39,
-  "threads": 253,
-  "statutoryRequests": 136,
-  "emailsSent": 396,
-  "repliesReceived": 353,
-  "substantiveReplies": 199,
+  "threads": 260,
+  "statutoryRequests": 138,
+  "emailsSent": 400,
+  "repliesReceived": 365,
+  "substantiveReplies": 200,
   "statusCounts": {
     "Replied": 47,
     "No reply in mailbox": 23,
     "Possibly answered in another thread — check": 50,
     "Replied late": 4,
-    "Acknowledged only": 9,
+    "Acknowledged only": 8,
     "No reply found": 1,
     "Chase of 719/26": 1,
-    "Notices only (see WDTK)": 1
+    "Notices only (see WDTK)": 1,
+    "Response received; attachments unread": 3
   },
   "typeCounts": {
-    "FOI": 89,
-    "EIR": 19,
+    "FOI": 90,
+    "EIR": 20,
     "Internal review": 6,
     "Preservation notice": 11,
-    "Inbound only": 20,
+    "Inbound only": 23,
     "Correspondence": 69,
     "SAR": 22,
     "Complaint": 12,
-    "Records request": 5
-  }
+    "Records request": 7
+  },
+  "targetedAddendaThrough": "2026-11-24",
+  "coverageNote": "Base tracker remains through 18 October 2026. Targeted HMLR and TNA updates are included through 24 November; other institutions have not been fully refreshed."
 } as const;
 
-export const trackerMethod = "Built on 19 October 2026 from the family mailbox (read-only), sent mail and inbox, through 18 October 2026, cross-checked against the wiki correspondence pages (greathousefarmwiki.wordpress.com, pages 5356–5374). One row is one conversation with one institution: the email thread, plus any thread sharing its official reference number or subject. Deadlines are computed, not quoted: 20 working days for FOI and EIR (England and Wales bank holidays from 2019), one calendar month for subject access. An authority’s own stated date takes precedence where the row notes one. outcomeAuto and exemptionsAuto are read mechanically from the institution’s own words in each reply, with quoted earlier messages excluded. Hand-checked rows say so in the note column. ‘Possibly answered in another thread — check’ means a later substantive reply from the same institution exists elsewhere in the mailbox. Requests made through WhatDoTheyKnow show only the notification emails here; the request and response text is on WhatDoTheyKnow. No email addresses, phone numbers or other contact details are included. Officials are not named; institutions and official reference numbers only. Contested history is attributed to the named person who gave it, or marked SOURCE PENDING.";
+export const trackerMethod = "Base tracker built on 19 October 2026 from the family mailbox through 18 October 2026, cross-checked against the wiki correspondence pages (greathousefarmwiki.wordpress.com, pages 5356–5374). One row is one conversation with one institution: the email thread, plus any thread sharing its official reference number or subject. Deadlines are computed, not quoted: 20 working days for FOI and EIR (England and Wales bank holidays from 2019), one calendar month for subject access; an authority’s stated date takes precedence where recorded. Outcome and exemption labels are mechanical readings of the institution’s own words, not findings. Targeted HMLR and TNA addenda through 24 November 2026 are included in the tracker rows; other institutions and the remaining correspondence have not been fully refreshed. The base mailboxThrough date therefore remains 18 October 2026. No email addresses, phone numbers or other contact details are included. Officials are not named; institutions and official reference numbers only. Contested history is attributed to the named source or marked SOURCE PENDING.";
 
 /** Checked by hand against the mailbox on 19 October 2026. */
 export const notableItems: NotableItem[] = [
@@ -114,6 +117,190 @@ export const notableItems: NotableItem[] = [
 ];
 
 export const trackerRows: TrackerRow[] = [
+  {
+    "id": "tna-2026-11-24-cas-368638",
+    "institution": "The National Archives",
+    "partyId": "tna",
+    "route": "Email",
+    "type": "Records request",
+    "subject": "1955 possession proceedings — archival research route",
+    "refs": [
+      "CAS-368638-K3T9L3",
+      "CRM:022601786"
+    ],
+    "requestDate": "",
+    "statutoryDeadline": "",
+    "regime": "Archive research enquiry; no statutory clock",
+    "sent": 0,
+    "replies": 1,
+    "substantiveReplies": 1,
+    "firstSubstantiveReply": "2026-11-24",
+    "latestReply": "2026-11-24",
+    "outcomeAuto": "Research guidance; original claim/order not identified",
+    "exemptionsAuto": "",
+    "status": "Information received — research guidance",
+    "possibleReplyElsewhere": "",
+    "lastActivity": "2026-11-24",
+    "threadUrl": "https://email.bucklerfamily.estate/reference/1a20c9e8671cd4d9",
+    "note": "TNA conditionally identifies J 88/21 (1955 cause-book index) and J 87/147 (1955 cause book) if proceedings commenced in 1955. It points to ASSI 78/3 or ASSI 78/4 for Cardiff District Registry records and states that no other records survive. This is research guidance, not proof that the original claim or order has been located; 4 July 1955 remains the possession date recited in the later judgment, not a verified hearing/order date."
+  },
+  {
+    "id": "hmlr-2026-11-21-7000146",
+    "institution": "HM Land Registry",
+    "partyId": "hmlr",
+    "route": "Online form",
+    "type": "Inbound only",
+    "subject": "Online enquiry acknowledgement 261121-7000146",
+    "refs": [
+      "261121-7000146"
+    ],
+    "requestDate": "",
+    "statutoryDeadline": "",
+    "regime": "Online enquiry; no statutory clock",
+    "sent": 0,
+    "replies": 1,
+    "substantiveReplies": 0,
+    "firstSubstantiveReply": "",
+    "latestReply": "2026-11-21",
+    "outcomeAuto": "Acknowledgement only",
+    "exemptionsAuto": "",
+    "status": "Acknowledged only",
+    "possibleReplyElsewhere": "",
+    "lastActivity": "2026-11-21",
+    "threadUrl": "https://email.bucklerfamily.estate/reference/1a1fd255d935f30b",
+    "note": "Automated acknowledgement only. The underlying online enquiry content has not yet been reconciled."
+  },
+  {
+    "id": "hmlr-2026-11-19-6994687",
+    "institution": "HM Land Registry",
+    "partyId": "hmlr",
+    "route": "Online form",
+    "type": "Inbound only",
+    "subject": "Online enquiry acknowledgement 261119-6994687",
+    "refs": [
+      "261119-6994687"
+    ],
+    "requestDate": "",
+    "statutoryDeadline": "",
+    "regime": "Online enquiry; no statutory clock",
+    "sent": 0,
+    "replies": 1,
+    "substantiveReplies": 0,
+    "firstSubstantiveReply": "",
+    "latestReply": "2026-11-19",
+    "outcomeAuto": "Acknowledgement only",
+    "exemptionsAuto": "",
+    "status": "Acknowledged only",
+    "possibleReplyElsewhere": "",
+    "lastActivity": "2026-11-19",
+    "threadUrl": "https://email.bucklerfamily.estate/reference/1a1f4b01c9339dbf",
+    "note": "Automated acknowledgement only. The underlying online enquiry content has not yet been reconciled."
+  },
+  {
+    "id": "hmlr-2026-11-19-6994666",
+    "institution": "HM Land Registry",
+    "partyId": "hmlr",
+    "route": "Online form",
+    "type": "Inbound only",
+    "subject": "Online enquiry acknowledgement 261119-6994666",
+    "refs": [
+      "261119-6994666"
+    ],
+    "requestDate": "",
+    "statutoryDeadline": "",
+    "regime": "Online enquiry; no statutory clock",
+    "sent": 0,
+    "replies": 1,
+    "substantiveReplies": 0,
+    "firstSubstantiveReply": "",
+    "latestReply": "2026-11-19",
+    "outcomeAuto": "Acknowledgement only",
+    "exemptionsAuto": "",
+    "status": "Acknowledged only",
+    "possibleReplyElsewhere": "",
+    "lastActivity": "2026-11-19",
+    "threadUrl": "https://email.bucklerfamily.estate/reference/1a1f4ae5429b4c18",
+    "note": "Automated acknowledgement only. The underlying online enquiry content has not yet been reconciled."
+  },
+  {
+    "id": "hmlr-2026-11-18-wa231076-wa240304",
+    "institution": "HM Land Registry",
+    "partyId": "hmlr",
+    "route": "Email",
+    "type": "Records request",
+    "subject": "Historical research enquiry — 1971 OS alteration and first registrations WA231076 / WA240304",
+    "refs": [
+      "WA231076",
+      "WA240304"
+    ],
+    "requestDate": "2026-11-18",
+    "statutoryDeadline": "",
+    "regime": "Voluntary records enquiry; no statutory clock",
+    "sent": 2,
+    "replies": 0,
+    "substantiveReplies": 0,
+    "firstSubstantiveReply": "",
+    "latestReply": "",
+    "outcomeAuto": "Withdrawn by requester 19 Nov 2026",
+    "exemptionsAuto": "",
+    "status": "Requester-closed",
+    "possibleReplyElsewhere": "",
+    "lastActivity": "2026-11-19",
+    "threadUrl": "https://email.bucklerfamily.estate/reference/1a1f4ad8b0ba3f89",
+    "note": "The 18 Nov enquiry concerned the 1971 OS alteration and first registrations WA231076/WA240304. The requester withdrew this specific enquiry on 19 Nov and asked HMLR not to prepare a response; the withdrawal expressly preserves Z084NQV and separate statutory processes."
+  },
+  {
+    "id": "hmlr-2026-10-20-f261030",
+    "institution": "HM Land Registry",
+    "partyId": "hmlr",
+    "route": "Email",
+    "type": "FOI",
+    "subject": "Freedom of Information request — F261030",
+    "refs": [
+      "F261030"
+    ],
+    "requestDate": "2026-10-20",
+    "statutoryDeadline": "2026-11-17",
+    "regime": "FOIA 2000 s10(1)",
+    "sent": 1,
+    "replies": 2,
+    "substantiveReplies": 0,
+    "firstSubstantiveReply": "",
+    "latestReply": "2026-11-12",
+    "outcomeAuto": "Response received; PDF unread",
+    "exemptionsAuto": "",
+    "status": "Response received; attachments unread",
+    "possibleReplyElsewhere": "The 12 Nov response thread contains the joint PDF for F261029/F261030 and a separate F260213.pdf.",
+    "lastActivity": "2026-11-12",
+    "threadUrl": "https://email.bucklerfamily.estate/reference/1a168c69031bff64",
+    "note": "Acknowledged 23 Oct; response received 12 Nov with a PDF covering F261029/F261030. The PDF has not yet been read or reconciled; no substantive/partial/not-held outcome is assigned."
+  },
+  {
+    "id": "hmlr-2026-10-20-f261029",
+    "institution": "HM Land Registry",
+    "partyId": "hmlr",
+    "route": "Email",
+    "type": "EIR",
+    "subject": "Environmental Information Regulations request — F261029",
+    "refs": [
+      "F261029"
+    ],
+    "requestDate": "2026-10-20",
+    "statutoryDeadline": "2026-11-17",
+    "regime": "EIR 2004 reg 5(2)",
+    "sent": 1,
+    "replies": 2,
+    "substantiveReplies": 0,
+    "firstSubstantiveReply": "",
+    "latestReply": "2026-11-12",
+    "outcomeAuto": "Response received; PDF unread",
+    "exemptionsAuto": "",
+    "status": "Response received; attachments unread",
+    "possibleReplyElsewhere": "The 12 Nov response thread contains the joint PDF for F261029/F261030 and a separate F260213.pdf.",
+    "lastActivity": "2026-11-12",
+    "threadUrl": "https://email.bucklerfamily.estate/reference/1a168c69031bff64",
+    "note": "Acknowledged 23 Oct; response received 12 Nov with a PDF covering F261029/F261030. The PDF has not yet been read or reconciled; no substantive/partial/not-held outcome is assigned."
+  },
   {
     "id": "museum-2026-07-13-6ecdbc",
     "institution": "Amgueddfa Cymru — Museum Wales",
@@ -2221,22 +2408,24 @@ export const trackerRows: TrackerRow[] = [
     "partyId": "hmlr",
     "route": "Email",
     "type": "SAR",
-    "subject": "Preservation notice — Great House Farm (Tŷ Mawr), Llandough — do not destroy, transfer or dispose",
-    "refs": [],
+    "subject": "Subject Access Request: D260928",
+    "refs": [
+      "D260928"
+    ],
     "requestDate": "2026-09-28",
-    "statutoryDeadline": "2026-10-28",
-    "sent": 1,
-    "replies": 1,
+    "statutoryDeadline": "2026-11-06",
+    "sent": 2,
+    "replies": 6,
     "substantiveReplies": 0,
     "firstSubstantiveReply": "",
-    "latestReply": "2026-09-28",
-    "outcomeAuto": "acknowledged only",
+    "latestReply": "2026-11-06",
+    "outcomeAuto": "Response received; three encrypted parts unread",
     "exemptionsAuto": "",
-    "status": "Acknowledged only — due 28 Oct 2026",
-    "possibleReplyElsewhere": "",
-    "lastActivity": "2026-09-28",
+    "status": "Response received; attachments unread",
+    "possibleReplyElsewhere": "ID request 27 Oct; user identity evidence 2 Nov; deadline reset 4 Nov; 6 Nov cover and three encrypted response parts are in separate threads.",
+    "lastActivity": "2026-11-06",
     "threadUrl": "https://email.bucklerfamily.estate/reference/1a0e9e1e5a4586bf",
-    "note": ""
+    "note": "HMLR requested identity evidence on 27 Oct; the user supplied it on 2 Nov; HMLR reset the reply date to 6 Nov on 4 Nov. Three encrypted response parts plus a cover email arrived 6 Nov. Contents have not yet been read; no disclosure outcome is assigned. Keep this D260928 SAR separate from F261029/F261030."
   },
   {
     "id": "hmlr-2026-04-19-b0bc06",

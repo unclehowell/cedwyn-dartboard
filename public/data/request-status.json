@@ -1,9 +1,9 @@
 {
 "schema": "ghf-request-status/1",
-"generated": "2026-10-21T12:57:42Z",
+"generated": "2026-11-24T13:20:00Z",
 "asOf": "2026-10-21",
-"source": "https://dartboard.bucklerfamily.estate/ (court-ready data); mail at https://wayback.bucklerfamily.estate/api/index.json",
-"note": "Statuses come from the request tracker and reply text, re-dated against statutory clocks (FOI/EIR 20 working days, SAR one month). Reason codes record what a reply said, quoted in evidence; they are not findings.",
+"source": "https://dartboard.bucklerfamily.estate/ (court-ready data); mail at https://wayback.bucklerfamily.estate/api/index.json Targeted HMLR and TNA addenda through 24 November 2026; other institution records remain at the 21 October baseline.",
+"note": "Statuses come from the request tracker and reply text, re-dated against statutory clocks (FOI/EIR 20 working days, SAR one month). Reason codes record what a reply said, quoted in evidence; they are not findings. Targeted addenda do not imply that all 254 baseline requests have been re-audited.",
 "statusLegend": {
 "answered": "Answered",
 "partial": "Partially",
@@ -13,7 +13,10 @@
 "pending": "Not yet due",
 "check": "Reply may be elsewhere",
 "noreply": "No reply (no statutory clock)",
-"info": "Information"
+"info": "Information",
+"unreviewed": "Response received; attachments not yet reviewed",
+"requester_closed": "Closed by requester (not an institutional outcome)",
+"acknowledged_only": "Acknowledged only; no substantive response"
 },
 "reasonLegend": [
 {
@@ -263,18 +266,21 @@
 {
 "id": "hmlr",
 "name": "HM Land Registry",
-"sent": 33,
-"received": 24,
+"sent": 35,
+"received": 29,
 "first": "2026-01-29",
-"last": "2026-10-20",
+"last": "2026-11-21",
 "statusCounts": {
 "check": 8,
 "answered": 7,
 "partial": 1,
-"pending": 1,
-"noreply": 3
+"pending": 0,
+"noreply": 3,
+"unreviewed": 3,
+"requester_closed": 1,
+"acknowledged_only": 3
 },
-"open": 13,
+"open": 15,
 "checklist": [
 {
 "k": "Requests made (FOI / EIR / SAR)",
@@ -289,7 +295,7 @@
 {
 "k": "ICO complaint",
 "state": "open",
-"v": "Not yet made. Next: If nothing or no extension notice by 28 Oct: chase 29 Oct, then ICO data-protection complaint (UK GDPR Art 77)"
+"v": "D260928 response received 6 Nov in three encrypted parts; read before deciding whether an Art 77 complaint is appropriate. F261029/F261030 response received 12 Nov with unread PDFs."
 },
 {
 "k": "Complaint / ombudsman",
@@ -316,18 +322,58 @@
 {
 "ref": "D260928 (SAR)",
 "item": "Subject access request, titles WA231076/WA240304",
-"due": "Wed 28 Oct 2026",
-"rule": "UK GDPR Art 12(3): 1 month",
-"next": "If nothing or no extension notice by 28 Oct: chase 29 Oct, then ICO data-protection complaint (UK GDPR Art 77)",
-"status": "Open; the family added a documents list + EIR request on 20 Oct"
+"due": "Fri 06 Nov 2026",
+"rule": "UK GDPR Art 12(3): one month; deadline reset after ID pause",
+"next": "Open and review the three encrypted response parts, then decide whether any follow-up or ICO complaint is appropriate.",
+"status": "Response received 6 Nov in three encrypted parts; contents unread."
 },
 {
-"ref": "D260928 thread (EIR part)",
-"item": "EIR request for first-registration and amalgamation documents (sections 2-4 of 20 Oct email)",
+"ref": "F261029 (EIR)",
+"item": "Environmental Information Regulations request for first-registration and amalgamation documents (20 Oct)",
 "due": "Tue 17 Nov 2026",
 "rule": "EIR reg 5(2): 20 working days",
-"next": "Internal review (EIR reg 11: ask within 40 wd; they must decide within 40 wd), then ICO (EIR reg 18 / FOIA s50)",
-"status": "Sent 20 Oct 01:30 BST; no ack yet"
+"next": "Read the PDF response and reconcile the EIR request before deciding whether an internal review is needed.",
+"status": "Response received 12 Nov; PDF unread/unreconciled."
+},
+{
+"ref": "F261030 (FOI)",
+"item": "Freedom of Information request for first-registration and amalgamation documents (20 Oct)",
+"due": "Tue 17 Nov 2026",
+"rule": "FOIA s10(1): 20 working days",
+"next": "Read the PDF response and reconcile the FOI request before deciding whether an internal review is needed.",
+"status": "Response received 12 Nov; PDF unread/unreconciled."
+},
+{
+"ref": "WA231076 / WA240304 historical enquiry",
+"item": "18 Nov 1971 OS alteration and first-registration research enquiry",
+"due": "No statutory deadline",
+"rule": "Voluntary records enquiry",
+"next": "None — withdrawn by requester on 19 Nov; expressly separate from Z084NQV.",
+"status": "Requester-closed 19 Nov 2026."
+},
+{
+"ref": "261119-6994666",
+"item": "HMLR online enquiry",
+"due": "No statutory deadline",
+"rule": "Online records enquiry",
+"next": "Await substantive response; underlying enquiry content not yet reconciled.",
+"status": "Acknowledgement only — 19 Nov."
+},
+{
+"ref": "261119-6994687",
+"item": "HMLR online enquiry",
+"due": "No statutory deadline",
+"rule": "Online records enquiry",
+"next": "Await substantive response; underlying enquiry content not yet reconciled.",
+"status": "Acknowledgement only — 19 Nov."
+},
+{
+"ref": "261121-7000146",
+"item": "HMLR online enquiry",
+"due": "No statutory deadline",
+"rule": "Online records enquiry",
+"next": "Await substantive response; underlying enquiry content not yet reconciled.",
+"status": "Acknowledgement only — 21 Nov."
 }
 ]
 },
@@ -413,15 +459,16 @@
 "id": "tna",
 "name": "The National Archives",
 "sent": 23,
-"received": 20,
+"received": 21,
 "first": "2026-01-31",
-"last": "2026-10-19",
+"last": "2026-11-24",
 "statusCounts": {
 "answered": 4,
 "check": 2,
 "partial": 1,
 "pending": 2,
-"noreply": 1
+"noreply": 1,
+"info": 1
 },
 "open": 6,
 "checklist": [
@@ -477,6 +524,14 @@
 "rule": "ICO guidance IR: 20 wd, 40 max",
 "next": "ICO s50",
 "status": "Open"
+},
+{
+"ref": "CAS-368638-K3T9L3 / CRM:022601786",
+"item": "1955 possession proceedings archival research route",
+"due": "No statutory deadline",
+"rule": "Records enquiry",
+"next": "Clarify the exact date spans and descriptions of ASSI 78/3 and ASSI 78/4, and the scope of 'No other records survive'; verify whether J 88/21 / J 87/147 correspond to the specific proceedings.",
+"status": "Research guidance received 24 Nov; original claim/order not identified."
 }
 ]
 },
@@ -2967,6 +3022,162 @@
 ],
 "requests": [
 {
+"institution": "tna",
+"institutionName": "The National Archives",
+"type": "Records enquiry",
+"subject": "Response to National Archives case number CAS-368638-K3T9L3 CRM:022601786",
+"refs": [
+"CAS-368638-K3T9L3",
+"CRM:022601786"
+],
+"sent": "",
+"due": "",
+"rule": "No statutory deadline",
+"status": "info",
+"late": false,
+"outcome": "Research guidance received; original claim/order not identified",
+"firstReply": "2026-11-24",
+"note": "TNA conditionally identifies J 88/21 and J 87/147 if proceedings commenced in 1955; for Cardiff District Registry records it points to ASSI 78/3 or ASSI 78/4 and states no other records survive. This is guidance, not proof the original case/order has been located.",
+"why": [
+"info"
+],
+"whyEvidence": [],
+"threadUrl": "https://email.bucklerfamily.estate/reference/1a20c9e8671cd4d9"
+},
+{
+"institution": "hmlr",
+"institutionName": "HM Land Registry",
+"type": "Records enquiry",
+"subject": "Online enquiry acknowledgement 261121-7000146",
+"refs": [
+"261121-7000146"
+],
+"sent": "",
+"due": "",
+"rule": "No statutory deadline",
+"status": "acknowledged_only",
+"late": false,
+"outcome": "Acknowledgement only",
+"firstReply": "2026-11-21",
+"note": "Automated acknowledgement only; underlying enquiry content not yet reconciled.",
+"why": [
+"acknowledged_only"
+],
+"whyEvidence": [],
+"threadUrl": "https://email.bucklerfamily.estate/reference/1a1fd255d935f30b"
+},
+{
+"institution": "hmlr",
+"institutionName": "HM Land Registry",
+"type": "Records enquiry",
+"subject": "Online enquiry acknowledgement 261119-6994666",
+"refs": [
+"261119-6994666"
+],
+"sent": "",
+"due": "",
+"rule": "No statutory deadline",
+"status": "acknowledged_only",
+"late": false,
+"outcome": "Acknowledgement only",
+"firstReply": "2026-11-19",
+"note": "Automated acknowledgement only; underlying enquiry content not yet reconciled.",
+"why": [
+"acknowledged_only"
+],
+"whyEvidence": [],
+"threadUrl": "https://email.bucklerfamily.estate/reference/1a1f4ae5429b4c18"
+},
+{
+"institution": "hmlr",
+"institutionName": "HM Land Registry",
+"type": "Records enquiry",
+"subject": "Online enquiry acknowledgement 261119-6994687",
+"refs": [
+"261119-6994687"
+],
+"sent": "",
+"due": "",
+"rule": "No statutory deadline",
+"status": "acknowledged_only",
+"late": false,
+"outcome": "Acknowledgement only",
+"firstReply": "2026-11-19",
+"note": "Automated acknowledgement only; underlying enquiry content not yet reconciled.",
+"why": [
+"acknowledged_only"
+],
+"whyEvidence": [],
+"threadUrl": "https://email.bucklerfamily.estate/reference/1a1f4b01c9339dbf"
+},
+{
+"institution": "hmlr",
+"institutionName": "HM Land Registry",
+"type": "Records enquiry",
+"subject": "Historical research enquiry — 1971 Ordnance Survey alteration and first registrations WA231076 / WA240304",
+"refs": [
+"WA231076",
+"WA240304"
+],
+"sent": "2026-11-18",
+"due": "",
+"rule": "No statutory deadline",
+"status": "requester_closed",
+"late": false,
+"outcome": "Withdrawn by requester 19 Nov 2026",
+"firstReply": "",
+"note": "The requester withdrew this specific enquiry on 19 Nov and asked HMLR not to prepare a response. The withdrawal expressly leaves application Z084NQV and separate statutory processes unaffected.",
+"why": [
+"requester_closed"
+],
+"whyEvidence": [],
+"threadUrl": "https://email.bucklerfamily.estate/reference/1a1f4ad8b0ba3f89"
+},
+{
+"institution": "hmlr",
+"institutionName": "HM Land Registry",
+"sent": "2026-10-20",
+"due": "2026-11-17",
+"rule": "20 working days",
+"status": "unreviewed",
+"late": false,
+"outcome": "Response received 12 Nov; PDF unread/unreconciled",
+"firstReply": "2026-10-23",
+"note": "23 Oct acknowledgement; 12 Nov response attached Response for F261029 and F261030.pdf and F260213.pdf. The relevant PDF has not yet been read; no disclosure outcome assigned. Keep F260213.pdf separate.",
+"why": [
+"unreviewed"
+],
+"whyEvidence": [],
+"threadUrl": "https://email.bucklerfamily.estate/reference/1a168c69031bff64",
+"type": "EIR",
+"subject": "Environmental Information Regulations request — F261029",
+"refs": [
+"F261029"
+]
+},
+{
+"institution": "hmlr",
+"institutionName": "HM Land Registry",
+"sent": "2026-10-20",
+"due": "2026-11-17",
+"rule": "20 working days",
+"status": "unreviewed",
+"late": false,
+"outcome": "Response received 12 Nov; PDF unread/unreconciled",
+"firstReply": "2026-10-23",
+"note": "23 Oct acknowledgement; 12 Nov response attached Response for F261029 and F261030.pdf and F260213.pdf. The relevant PDF has not yet been read; no disclosure outcome assigned. Keep F260213.pdf separate.",
+"why": [
+"unreviewed"
+],
+"whyEvidence": [],
+"threadUrl": "https://email.bucklerfamily.estate/reference/1a168c69031bff64",
+"type": "FOI",
+"subject": "Freedom of Information request — F261030",
+"refs": [
+"F261030"
+]
+},
+{
 "institution": "vale-foi",
 "institutionName": "Vale of Glamorgan Council",
 "type": "FOI",
@@ -4285,14 +4496,16 @@
 "subject": "Preservation notice — Great House Farm (Tŷ Mawr), Llandough — do not destroy, transfer or dispose",
 "refs": [],
 "sent": "2026-09-28",
-"due": "2026-10-28",
+"due": "2026-11-06",
 "rule": "1 calendar month",
-"status": "pending",
+"status": "unreviewed",
 "late": false,
-"outcome": "acknowledged only",
-"firstReply": "",
-"note": "",
-"why": [],
+"outcome": "Response received 6 Nov in three encrypted parts; contents unread",
+"firstReply": "2026-10-27",
+"note": "HMLR requested identity evidence on 27 Oct; on 4 Nov it confirmed the identity evidence had been destroyed and reset the statutory reply date to 6 Nov. Three encrypted response parts arrived 6 Nov; contents not yet read. Response threads: 1a1b10ae803cb32e, 1a1b10cb9b09c57d, 1a1b10d5a065c0ce and 1a1b10d986074076.",
+"why": [
+"unreviewed"
+],
 "whyEvidence": [],
 "threadUrl": "https://email.bucklerfamily.estate/reference/1a0e9e1e5a4586bf"
 },
@@ -8140,5 +8353,7 @@
 "threadUrl": "https://email.bucklerfamily.estate/reference/199b31946d71f259"
 }
 ],
-"count": 254
+"count": 261,
+"targetedAddendaThrough": "2026-11-24",
+"coverageNote": "Historical request-status baseline remains 21 October 2026. Targeted HMLR and National Archives addenda through 24 November are included; all other institutions and requests still require full source reconciliation."
 }
