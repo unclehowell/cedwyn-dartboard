@@ -14,3 +14,8 @@
 
 ### Reviewed
 - Read the static styles and public-record workflow documentation. Dynamic data correctness requires running the app and its existing tests in the deployment environment; this CSS-only change was not represented as a full runtime test.
+
+
+## 24 November 2026 — snapshot and route caution
+- Added an on-screen freshness and interpretation note to the main board. It surfaces the existing mailbox-sample and roadmap-as-of dates and warns that the app is not a live inbox, deadline monitor or current task register.
+- Added mandatory source-thread, attachment, regime, recipient-policy and clock verification before acting on any automated label or route.
