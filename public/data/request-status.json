@@ -463,11 +463,12 @@
       "first": "2026-01-31",
       "last": "2026-11-24",
       "statusCounts": {
-        "answered": 5,
+        "answered": 4,
         "check": 2,
         "partial": 1,
         "pending": 2,
-        "noreply": 1
+        "noreply": 1,
+        "info": 1
       },
       "open": 6,
       "checklist": [
@@ -8296,7 +8297,7 @@
       "sent": "",
       "due": "",
       "rule": "No statutory deadline",
-      "status": "answered",
+      "status": "info",
       "late": false,
       "outcome": "Research guidance received; original claim/order not identified",
       "firstReply": "2026-11-24",
