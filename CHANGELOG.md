@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 ### Updated
+- Separate the NPCC 29 September internal-review outcome (six-week guidance point: 10 November) from the 9 October search-disclosure response (six-week guidance point: 20 November); clarify that the latter is ICO guidance, not a hard expiry, and keep the complaint status as not submitted.
 - Record the National Library of Wales's 17 November 2026 response on the two 1974 Report Wales recordings; preserve the conflicting FOI/2026/16 and FOI/2026/17 references, link both catalogue entries, and keep the separate preservation action visibly unresolved.
 
 

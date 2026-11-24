@@ -1,6 +1,6 @@
 {
 "schema": "ghf-request-status/1",
-"generated": "2026-10-21T12:57:42Z",
+"generated": "2026-11-20T12:42:00Z",
 "asOf": "2026-10-21",
 "source": "https://dartboard.bucklerfamily.estate/ (court-ready data); mail at https://wayback.bucklerfamily.estate/api/index.json",
 "note": "Statuses come from the request tracker and reply text, re-dated against statutory clocks (FOI/EIR 20 working days, SAR one month). Reason codes record what a reply said, quoted in evidence; they are not findings.",
@@ -1054,7 +1054,7 @@
 {
 "k": "ICO complaint",
 "state": "open",
-"v": "Not yet made. Next: ICO s50"
+"v": "Not yet submitted. 20 Nov 2026 is six weeks from the 9 Oct response (ICO guidance point, not a hard expiry)."
 },
 {
 "k": "Complaint / ombudsman",
@@ -1079,12 +1079,12 @@
 ],
 "checked": [
 {
-"ref": "3065/2026 (WDTK); IR 3157/3176",
-"item": "Searches response 9 Oct; NPCC declines a further IR",
-"due": "Fri 20 Nov 2026 (IR outcome 29 Sep -> Tue 10 Nov 2026)",
-"rule": "ICO: six weeks",
-"next": "ICO s50",
-"status": "Decide by 10 Nov / 20 Nov"
+"ref": "FOI 3065/2026 response (9 Oct 2026); concerns searches for FOI 3156/2026 and internal review 3176/2026",
+"item": "NPCC search-disclosure response; further internal review declined",
+"due": "Fri 20 Nov 2026 — six-week ICO guidance point from 9 Oct 2026 (not a hard expiry). The separate 29 Sep internal-review outcome reached its six-week point on 10 Nov 2026.",
+"rule": "FOIA s.50; ICO six-week complaint guidance (not a statutory expiry)",
+"next": "Consider an ICO s.50 complaint about the adequacy of recorded search information; none submitted by the requester as at 20 Nov 2026.",
+"status": "Not submitted by the requester as at 20 Nov 2026. Six-week guidance point reached; not a hard expiry."
 }
 ]
 },
