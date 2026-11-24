@@ -11,10 +11,16 @@ type Conv = {
   ev: string; u: string; t: string; reg: string; ref: string; rd: string; dl: string; met: string; fr: string;
   d: number | null; c: string; ex: string[]; ns: number | null; nr: number | null; na: number | null;
   att: [string, string][]; m: string; via: string;
+  closure?: { status: "requester_closed"; date: string; scope: string };
 };
+type Closure = { body: string; date: string; status: "requester_closed"; scope: string; laterUpdate?: { date: string; reference: string; status: "requester_closed"; detail: string } };
+type LiveProcess = { body: string; reference: string; status: string; detail: string; due?: string; since?: string };
+type NewLine = { body: string; reference: string; date: string; status: string; detail: string };
+type MissingRecord = string;
 type Inst = { name: string; n: number; cnt: Record<string, number>; convs: Conv[] };
 const D = data as unknown as {
-  generated: string; asOf: string; classes: string[]; hub: string;
+  generated: string; asOf: string; positionAsOf: string; countBasis: string; countNote: string; closureCount: number;
+  classes: string[]; hub: string; closures: Closure[]; otherClosures: Closure[]; newLines: NewLine[]; liveProcesses: LiveProcess[]; missingRecords: MissingRecord[]; preservationNote: string; noFurtherWithdrawalsInstruction: string;
   totals: { institutions: number; requests: number; sent: number; received: number; attachments: number; met: number; missed: number; pending: number; clocked: number };
   byClass: Record<string, number>; months: { m: string; c: Record<string, number> }[]; institutions: Inst[];
 };
@@ -31,6 +37,7 @@ export const CLASS: Record<string, { label: string; colour: string; hollow?: boo
   "acknowledgement only": { label: "Acknowledged only", colour: "#b8b0a8" },
   "no reply by deadline": { label: "No reply by deadline", colour: "#ea580c" },
   "no reply": { label: "No reply", colour: "#9ca3af", hollow: true },
+  requester_closed: { label: "Closed by requester", colour: "#64748b" },
 };
 const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const fmt = (s: string) => {
@@ -48,8 +55,8 @@ function Tile({ c, on, dim, onTap }: { c: Conv; on: boolean; dim: boolean; onTap
       type="button"
       onClick={onTap}
       aria-pressed={on}
-      aria-label={`${c.ev}: ${c.t}. ${k.label}. ${c.met}`}
-      title={`${c.ev} · ${k.label}`}
+      aria-label={`${c.ev}: ${c.t}. ${k.label}. ${c.met}${c.closure ? `. Closed by requester ${fmt(c.closure.date)}.` : ""}`}
+      title={`${c.ev} · ${k.label}${c.closure ? " · requester-closed" : ""}`}
       className="relative size-7 rounded-md transition-opacity"
       style={{
         background: k.hollow ? "transparent" : k.colour,
@@ -60,6 +67,7 @@ function Tile({ c, on, dim, onTap }: { c: Conv; on: boolean; dim: boolean; onTap
       }}
     >
       {c.via !== "Email" && <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white">W</span>}
+      {c.closure && <span className="absolute -right-1 -top-1 flex size-3.5 items-center justify-center rounded-full border border-white bg-white text-[8px] font-bold text-[#4b5563]" aria-hidden="true">R</span>}
     </button>
   );
 }
@@ -72,6 +80,8 @@ function Detail({ c }: { c: Conv }) {
     ["Asked", fmt(c.rd)],
     ["Statutory deadline", c.dl ? fmt(c.dl) : "none applies"],
     ["Clock", c.met],
+    ["Request status", c.closure ? `Requester-closed ${fmt(c.closure.date)} — not an institutional outcome` : undefined],
+    ["Closure scope", c.closure?.scope],
     ["First real reply", c.fr ? fmt(c.fr) : c.via === "Email" ? "none" : undefined],
     ["Days waited", c.d == null ? undefined : String(c.d)],
     ["Exemptions cited", c.ex.length ? c.ex.join(", ") : undefined],
@@ -125,16 +135,73 @@ export function DisclosureRecord() {
         {[
           [T.requests, "requests"],
           [T.institutions, "institutions"],
-          [T.attachments, "documents sent to us"],
+          [T.attachments, "attachments received"],
+          [T.clocked, "statutory clocks tracked"],
           [T.met, "clocks met"],
           [T.missed, "clocks missed"],
-          [T.pending, "not yet due"],
+          [T.pending, "pending at count date"],
         ].map(([n, l]) => (
           <div key={String(l)} className="rounded-lg border border-line px-1 py-2">
             <div className="font-serif text-xl text-fg">{n}</div>
             <div className="text-[11px] leading-tight text-muted">{l}</div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-4 rounded-xl border border-line p-3">
+        <h3 className="font-serif text-lg text-fg">Current position · {D.positionAsOf}</h3>
+        <p className="mt-1 text-xs leading-relaxed text-muted">{D.countNote}</p>
+        <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-fg">Still live / standing</h4>
+        <ul className="mt-1 space-y-1.5">
+          {D.liveProcesses.map((p) => (
+            <li key={p.body + p.reference} className="text-xs leading-relaxed text-muted">
+              <span className="font-semibold text-fg">{p.body} · {p.reference}</span> — {p.detail}
+              {p.due ? ` Due ${fmt(p.due)}.` : ""}
+              {p.since ? ` Overdue since ${fmt(p.since)}.` : ""}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-2 text-xs leading-relaxed text-muted">{D.preservationNote}</p>
+        <p className="mt-1 text-xs leading-relaxed text-muted">{D.noFurtherWithdrawalsInstruction}</p>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">Requester-initiated closures · {D.closureCount} bodies</summary>
+          <ul className="mt-2 space-y-1.5">
+            {D.closures.map((c) => (
+              <li key={c.body} className="text-xs leading-relaxed text-muted">
+                <span className="font-semibold text-fg">{c.body} · {fmt(c.date)}</span> — {c.scope}
+                {c.laterUpdate ? ` Later update: ${c.laterUpdate.reference} requester-closed ${fmt(c.laterUpdate.date)}.` : ""}
+              </li>
+            ))}
+          </ul>
+        </details>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">Additional requester-closed tracks (outside the 18-body list) · {D.otherClosures.length}</summary>
+          <ul className="mt-2 space-y-1.5">
+            {D.otherClosures.map((c) => (
+              <li key={c.body} className="text-xs leading-relaxed text-muted">
+                <span className="font-semibold text-fg">{c.body} · {fmt(c.date)}</span> — {c.scope}
+              </li>
+            ))}
+          </ul>
+        </details>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">New lines and post-count updates · {D.newLines.length}</summary>
+          <p className="mt-1 text-xs text-muted">These are shown separately and do not alter the 6 November request/outcome totals.</p>
+          <ul className="mt-2 space-y-1.5">
+            {D.newLines.map((n) => (
+              <li key={n.body + n.reference} className="text-xs leading-relaxed text-muted">
+                <span className="font-semibold text-fg">{n.body} · {n.reference} · {fmt(n.date)}</span> — {n.status}: {n.detail}
+              </li>
+            ))}
+          </ul>
+        </details>
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-fg">Records still not produced / unresolved · {D.missingRecords.length}</summary>
+          <ul className="mt-2 space-y-1.5">
+            {D.missingRecords.map((m) => <li key={m} className="text-xs leading-relaxed text-muted">{m}</li>)}
+          </ul>
+        </details>
+        <p className="mt-2 text-xs text-muted">Requester closure is a separate lifecycle status. It does not change the original outcome colour or erase an earlier statutory-clock result.</p>
       </div>
 
       <p className="mt-4 text-xs text-muted">Outcome of every request (tap a colour to filter)</p>
@@ -220,7 +287,7 @@ export function DisclosureRecord() {
         </button>
       )}
       <p className="mt-3 text-xs leading-relaxed text-muted">
-        Clocks: FOI and EIR 20 working days; EIR internal review 40; subject access one calendar month. Days waited run from our request to the first reply that was more than an acknowledgement. As of {D.asOf}.{" "}
+        Clocks: FOI and EIR 20 working days; EIR internal review 40; subject access one calendar month. Days waited run from our request to the first reply that was more than an acknowledgement. Position as at {D.asOf}; counts are based on the {D.countBasis} register.{" "}
         <a href={D.hub} target="_blank" rel="noreferrer" className="text-brass underline underline-offset-2">Every request on the wiki</a>
       </p>
     </section>
