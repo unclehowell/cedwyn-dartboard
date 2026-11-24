@@ -347,7 +347,7 @@ function Home() {
   return (
     <main className="mx-auto flex min-h-dvh w-full max-w-xl flex-col gap-4 px-3 pt-3 pb-10">
       <aside role="note" aria-label="Data freshness and interpretation" className="rounded-xl border border-line bg-surface px-3 py-2 text-xs leading-relaxed text-muted">
-        Historical mailbox snapshot: correspondence read through {sampledThrough}; roadmap statuses as of {fmtDate(avenuesAsOf)}. This is not a live inbox, statutory-deadline monitor or current task register. Verify each message, attachment, legal regime, recipient policy and deadline against the complete source thread and current official material before acting. Automated labels and route classifications are research aids, not findings of fault or motive.
+        Historical mailbox snapshot: correspondence read through {sampledThrough}; recipient-specific ladder data as of {fmtDate(avenuesAsOf)}. Separately, the disclosure-roadmap panel has a 21 November baseline with targeted National Archives and HM Land Registry addenda through 24 November 2026; the remaining lanes and static datasets have not yet had a full source reconciliation. This is not a live inbox, statutory-deadline monitor or current task register. Verify each message, attachment, legal regime, recipient policy and deadline against the complete source thread and current official material before acting. Automated labels and route classifications are research aids, not findings of fault or motive.
       </aside>
       <section aria-label="Dartboard">
         <DartWheel
