@@ -5,6 +5,13 @@ import { dirname, resolve } from "node:path";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../public/data");
 const disclosure = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/data/disclosure-record.json"), "utf8"));
+const correspondence = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/data/correspondence.json"), "utf8"));
+const avenuesSource = readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/data/avenues.ts"), "utf8");
+const baseMarker = "const baseInstitutions: AvInstitution[] =";
+const baseStart = avenuesSource.indexOf("[", avenuesSource.indexOf("=", avenuesSource.indexOf(baseMarker)));
+const baseEnd = avenuesSource.indexOf("];", baseStart) + 1;
+const baseInstitutions = JSON.parse(avenuesSource.slice(baseStart, baseEnd));
+
 const roadmap = JSON.parse(readFileSync(resolve(root, "roadmap.json"), "utf8"));
 const parts = [1, 2, 3].map((n) => JSON.parse(readFileSync(resolve(root, `roadmap-part-${n}.json`), "utf8")));
 
@@ -93,6 +100,11 @@ const hmlrEmails = parts[0].lanes["hm-land-registry"].emails;
 assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-f261029-f261030-20261112" && x.date === "2026-11-12"));
 assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-ack-261119-6994666" && x.cls === "acknowledgement only"));
 assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-ack-261121-7000146" && x.cls === "acknowledgement only"));
+assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-f261029-f261030-20261112" && x.cls === "response received; attachments unread"));
+assert.ok(parts[0].lanes["hm-land-registry"].requests.some((x) => x.ref === "F261029; F261030" && x.first_reply === "2026-11-12" && x.response.includes("PDFs unread")));
+assert.ok(parts[0].lanes["hm-land-registry"].requests.some((x) => x.ref === "WA231076; WA240304" && x.response === "withdrawn by requester" && x.deadline_met.includes("19 Nov 2026")));
+assert.ok(roadmap.current_position.new_lines.some((x) => x.reference === "WA231076 / WA240304 historical research enquiry" && x.status === "requester-closed 19 Nov 2026"));
+
 assert.ok(roadmap.current_position.new_lines.some((x) => x.reference === "F260213 / N610CGV" && x.status === "requester-closed"));
 
 assert.ok(parts[2].lanes["the-postal-museum"].requests.some((x) => x.request_date === "2026-11-20" && x.response === "not held"));
@@ -110,4 +122,21 @@ for (const p of parts) {
   assert.equal(p.generated, disclosure.generated);
 }
 assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-defence").closures.some((c) => c.date === "2026-11-21"));
+
+assert.equal(correspondence.asOf, "2026-11-09");
+assert.equal(correspondence.targetedAddendaThrough, "2026-11-24");
+assert.ok(correspondence.extra.some((x) => x.id === "x-1a168c69031bff64-reply" && x.inst.includes("hmlr") && x.o === "reply"));
+assert.ok(correspondence.extra.some((x) => x.id === "x-1a1f4ad8b0ba3f89" && x.o === "sent" && x.why.includes("preserves application Z084NQV")));
+assert.ok(correspondence.extra.some((x) => x.id === "x-1a20c9e8671cd4d9" && x.inst.includes("tna") && x.why.includes("ASSI 78/3")));
+const hmlrLadder = baseInstitutions.find((x) => x.id === "hmlr");
+const tnaLadder = baseInstitutions.find((x) => x.id === "tna");
+const correspondenceOffset = Object.keys(correspondence.emails).length;
+const hmlrReplyIdx = correspondenceOffset + correspondence.extra.findIndex((x) => x.id === "x-1a168c69031bff64-reply");
+const tnaReplyIdx = correspondenceOffset + correspondence.extra.findIndex((x) => x.id === "x-1a20c9e8671cd4d9");
+assert.ok(hmlrLadder.levels.find((x) => x.phase === "foi").items.includes(hmlrReplyIdx));
+assert.ok(hmlrLadder.levels.find((x) => x.phase === "enquiry").items.includes(correspondenceOffset + correspondence.extra.findIndex((x) => x.id === "x-1a1f4ad8b0ba3f89")));
+assert.ok(tnaLadder.levels.find((x) => x.phase === "enquiry").items.includes(tnaReplyIdx));
+assert.equal(correspondence.diamonds[String(hmlrReplyIdx)].length, 2);
+const disclosureComponent = readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/components/disclosure-record.tsx"), "utf8");
+assert.ok(disclosureComponent.includes('"response received; attachments unread"'));
 console.log("Disclosure snapshot checks passed.");

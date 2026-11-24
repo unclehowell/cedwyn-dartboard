@@ -34,6 +34,7 @@ export const CLASS: Record<string, { label: string; colour: string; hollow?: boo
   "fee or clarification demand": { label: "Fee or clarification asked", colour: "#0d9488" },
   "complaint outcome": { label: "Complaint outcome", colour: "#db2777" },
   "correspondence (no disclosure)": { label: "Reply, nothing disclosed", colour: "#8a817a" },
+  "response received; attachments unread": { label: "Response received; attachments unread", colour: "#8a817a" },
   "acknowledgement only": { label: "Acknowledged only", colour: "#b8b0a8" },
   "no reply by deadline": { label: "No reply by deadline", colour: "#ea580c" },
   "no reply": { label: "No reply", colour: "#9ca3af", hollow: true },
