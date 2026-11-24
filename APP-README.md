@@ -52,3 +52,8 @@ Live at dartboard.bucklerfamily.estate. The page is visual: a dartboard on top a
 The content and original code in this repository are not open source. You may read it, link to it and quote it fairly with credit. Any other copying, adaptation or commercial use (books, film, TV, documentary, podcasts, paid articles, AI training) needs a written licence first. Full terms: https://bucklerfamily.estate/licence/ · Apply: https://bucklerfamily.estate/enquire/ · See `LICENSE` and `NOTICE`. Third-party components keep their own licences. Exception: the Williams–Buckler crest artwork is licensed CC BY-SA 4.0 and grants no arms; see `NOTICE` item 3.
 
  — Sion's Tab agent
+
+
+## Freshness and interpretation safeguard (24 November 2026)
+
+The wheel, tracker and roadmap are historical mailbox-derived snapshots, not a live inbox, statutory-deadline monitor or current task register. The current in-app footer gives the actual mailbox sample and roadmap-as-of dates. Before any chase, escalation or deadline decision, re-open the complete source thread and attachments, identify the exact request/part and reference, verify the applicable regime and recipient's current policy, and calculate the clock from the proven receipt/clarification/extension facts. An automated outcome, colour, friction score or route classification is a triage aid only: it does not establish a legal breach, motive, concealment or wrongdoing. Distinguish acknowledgement, substantive answer, partial disclosure, refusal, not held, not located, transferred, never created and later-discovered records. Preserve separate request references and parcel/record scope.
