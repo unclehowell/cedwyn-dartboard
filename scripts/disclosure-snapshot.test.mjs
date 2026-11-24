@@ -137,4 +137,6 @@ assert.ok(hmlrLadder.levels.find((x) => x.phase === "foi").items.includes(hmlrRe
 assert.ok(hmlrLadder.levels.find((x) => x.phase === "enquiry").items.includes(correspondenceOffset + correspondence.extra.findIndex((x) => x.id === "x-1a1f4ad8b0ba3f89")));
 assert.ok(tnaLadder.levels.find((x) => x.phase === "enquiry").items.includes(tnaReplyIdx));
 assert.equal(correspondence.diamonds[String(hmlrReplyIdx)].length, 2);
+const disclosureComponent = readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), "../src/components/disclosure-record.tsx"), "utf8");
+assert.ok(disclosureComponent.includes('"response received; attachments unread"'));
 console.log("Disclosure snapshot checks passed.");
