@@ -8,7 +8,7 @@ const disclosure = JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.
 const roadmap = JSON.parse(readFileSync(resolve(root, "roadmap.json"), "utf8"));
 const parts = [1, 2, 3].map((n) => JSON.parse(readFileSync(resolve(root, `roadmap-part-${n}.json`), "utf8")));
 
-assert.ok(disclosure.generated.startsWith("2026-11-21T"));
+assert.ok(disclosure.generated.startsWith("2026-11-24T"));
 assert.equal(roadmap.generated, disclosure.generated);
 assert.ok(parts.every((part) => part.generated === disclosure.generated));
 assert.equal(disclosure.positionAsOf, "21 Nov 2026");
@@ -73,7 +73,7 @@ assert.ok(roadmap.totals.expected_scope.includes("6 November"));
 assert.ok(roadmap.totals.missed_deadlines_scope.includes("6 November"));
 assert.equal(roadmap.current_position.live_processes.length, 11);
 assert.equal(roadmap.current_position.additional_closures.length, 2);
-assert.equal(roadmap.current_position.new_lines.length, 8);
+assert.equal(roadmap.current_position.new_lines.length, 13);
 const modLane = roadmap.lanes.find((l) => l.id === "ministry-of-defence");
 assert.ok(modLane.live_items.some((x) => x.reference === "FOI2026/09019 — internal review" && x.since === "2026-06-20"));
 assert.ok(modLane.live_items.some((x) => x.reference === "SAR arising from FOI2026/09019" && x.since === "2026-09-05"));
@@ -87,6 +87,14 @@ assert.ok(roadmap.lanes.find((l) => l.id === "ministry-of-justice-hmcts").closur
 assert.ok(roadmap.lanes.find((l) => l.id === "national-library-of-wales").closures.some((x) => x.date === "2026-11-19"));
 assert.ok(parts[0].lanes["glamorgan-archives"].requests.some((x) => x.ref === "DBDT123/7; D696" && x.request_date === "2026-11-20"));
 assert.ok(parts[0].lanes["national-library-of-wales"].requests.some((x) => x.response === "partial" && x.first_reply === "2026-11-17"));
+const tnaEmails = parts[0].lanes["the-national-archives"].emails;
+assert.ok(tnaEmails.some((x) => x.date === "2026-11-24" && x.subject.includes("CAS-368638-K3T9L3") && x.summary.includes("ASSI 78/3")));
+const hmlrEmails = parts[0].lanes["hm-land-registry"].emails;
+assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-f261029-f261030-20261112" && x.date === "2026-11-12"));
+assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-ack-261119-6994666" && x.cls === "acknowledgement only"));
+assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-ack-261121-7000146" && x.cls === "acknowledgement only"));
+assert.ok(roadmap.current_position.new_lines.some((x) => x.reference === "F260213 / N610CGV" && x.status === "requester-closed"));
+
 assert.ok(parts[2].lanes["the-postal-museum"].requests.some((x) => x.request_date === "2026-11-20" && x.response === "not held"));
 assert.ok(parts[2].lanes["mid-and-west-wales-fire-and-rescue-service"].requests.some((x) => x.response === "not held" && x.first_reply === "2026-11-20"));
 assert.equal(disclosure.institutions.find((i) => i.name === "Ministry of Justice / HMCTS").convs.some((c) => c.reg === "SAR" && c.closure), false);
