@@ -93,6 +93,11 @@ const hmlrEmails = parts[0].lanes["hm-land-registry"].emails;
 assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-f261029-f261030-20261112" && x.date === "2026-11-12"));
 assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-ack-261119-6994666" && x.cls === "acknowledgement only"));
 assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-ack-261121-7000146" && x.cls === "acknowledgement only"));
+assert.ok(hmlrEmails.some((x) => x.id === "manual-hmlr-f261029-f261030-20261112" && x.cls === "response received; attachments unread"));
+assert.ok(parts[0].lanes["hm-land-registry"].requests.some((x) => x.ref === "F261029; F261030" && x.first_reply === "2026-11-12" && x.response.includes("PDFs unread")));
+assert.ok(parts[0].lanes["hm-land-registry"].requests.some((x) => x.ref === "WA231076; WA240304" && x.response === "withdrawn by requester" && x.deadline_met.includes("19 Nov 2026")));
+assert.ok(roadmap.current_position.new_lines.some((x) => x.reference === "WA231076 / WA240304 historical research enquiry" && x.status === "requester-closed 19 Nov 2026"));
+
 assert.ok(roadmap.current_position.new_lines.some((x) => x.reference === "F260213 / N610CGV" && x.status === "requester-closed"));
 
 assert.ok(parts[2].lanes["the-postal-museum"].requests.some((x) => x.request_date === "2026-11-20" && x.response === "not held"));
