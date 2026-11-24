@@ -147,6 +147,6 @@ assert.ok(requestStatus.requests.some((x) => x.refs.length === 1 && x.refs[0] ==
 assert.ok(requestStatus.requests.some((x) => x.refs.length === 1 && x.refs[0] === "F261030" && x.type === "FOI" && x.status === "unreviewed" && x.firstReply === "2026-10-23"));
 assert.ok(requestStatus.requests.some((x) => x.refs.includes("WA240304") && x.status === "requester_closed"));
 assert.ok(requestStatus.requests.some((x) => x.refs.includes("261121-7000146") && x.status === "acknowledged_only"));
-assert.ok(requestStatus.requests.some((x) => x.refs.includes("CAS-368638-K3T9L3") && x.firstReply === "2026-11-24"));
+assert.ok(requestStatus.requests.some((x) => x.refs.includes("CAS-368638-K3T9L3") && x.firstReply === "2026-11-24" && x.status === "info"));
 
 console.log("Disclosure snapshot checks passed.");
