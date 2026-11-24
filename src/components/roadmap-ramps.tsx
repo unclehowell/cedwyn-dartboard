@@ -863,10 +863,11 @@ function upcoming(lanes: Lane[], todayStr: string): Up[] {
 }
 
 /* ---------- component ---------- */
-export function RoadmapRamps({ preferName }: { preferName?: string }) {
+export function RoadmapRamps({ selectionKey, preferLaneId, preferInstitution }: { selectionKey: string; preferLaneId: string | null; preferInstitution: string }) {
   const [data, setData] = useState<Roadmap | null>(null);
   const [failed, setFailed] = useState(false);
-  const [laneId, setLaneId] = useState<string | null>(null);
+  const [manualLane, setManualLane] = useState<{ selectionKey: string; id: string } | null>(null);
+  const laneId = manualLane?.selectionKey === selectionKey ? manualLane.id : preferLaneId;
   const [hit, setHit] = useState<Hit | null>(null);
   const [todayStr, setTodayStr] = useState<string | null>(null);
   const [all, setAll] = useState(false);
@@ -907,17 +908,11 @@ export function RoadmapRamps({ preferName }: { preferName?: string }) {
   }, [data]);
 
   useEffect(() => {
-    if (!lanes.length) return;
-    if (preferName) {
-      const p = preferName.toLowerCase();
-      const m = lanes.find((l) => l.name.toLowerCase() === p) ?? lanes.find((l) => l.name.toLowerCase().includes(p) || p.includes(l.name.toLowerCase()));
-      if (m) {
-        setLaneId(m.id);
-        return;
-      }
-    }
-    setLaneId((cur) => cur ?? lanes[0].id);
-  }, [lanes, preferName]);
+    setManualLane(null);
+    setHit(null);
+    setFcOpen(false);
+    setFcBoard(false);
+  }, [selectionKey]);
 
   const lane = lanes.find((l) => l.id === laneId) ?? null;
   const L = useMemo(() => (lane && todayStr ? layout(lane, ms(todayStr)) : null), [lane, todayStr]);
@@ -1000,8 +995,10 @@ export function RoadmapRamps({ preferName }: { preferName?: string }) {
   };
 
   const pick = (id: string) => {
-    setLaneId(id);
+    setManualLane({ selectionKey, id });
     setHit(null);
+    setFcOpen(false);
+    setFcBoard(false);
     wrapRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   const idx = lane ? lanes.indexOf(lane) : -1;
@@ -1032,6 +1029,7 @@ export function RoadmapRamps({ preferName }: { preferName?: string }) {
           className="h-11 min-w-0 flex-1 rounded-xl border border-line bg-surface px-3 text-base text-fg"
         >
           {!lanes.length && <option value="">Loading the roadmap…</option>}
+          {lanes.length > 0 && !lane && <option value="" disabled>{`No roadmap lane mapped to ${preferInstitution}`}</option>}
           {lanes.map((l) => (
             <option key={l.id} value={l.id}>
               {`${l.name} · step ${l.reached || 1}/11`}
@@ -1094,7 +1092,8 @@ export function RoadmapRamps({ preferName }: { preferName?: string }) {
           {lane.route_basis ? <span className="block text-faint">Route: {lane.route_basis} · {lane.steps.length} steps</span> : null}
         </p>
       )}
-      <div ref={wrapRef} className="relative overflow-hidden rounded-2xl border border-line bg-[#0d0b09]" style={{ aspectRatio: `${W} / ${lane ? TOP + (lane.steps.length + 1) * LH + 18 : H}` }}>
+      {lane ? (
+        <div ref={wrapRef} className="relative overflow-hidden rounded-2xl border border-line bg-[#0d0b09]" style={{ aspectRatio: `${W} / ${lane ? TOP + (lane.steps.length + 1) * LH + 18 : H}` }}>
         {failed ? (
           <p className="p-4 text-sm text-muted">The roadmap data did not load. Open /data/roadmap.json directly.</p>
         ) : (
@@ -1120,7 +1119,12 @@ export function RoadmapRamps({ preferName }: { preferName?: string }) {
         {lane && fcBoard && !finst && (
           <p className="absolute inset-x-0 top-2 text-center text-xs text-[#f4efe6]">{ffailed ? "The forecast did not load." : "Loading the forecast…"}</p>
         )}
-      </div>
+        </div>
+      ) : (
+        <div ref={wrapRef} role="status" className="rounded-2xl border border-line bg-surface p-4 text-sm text-muted">
+          {failed ? "The roadmap data did not load." : `No institution-specific roadmap is mapped to ${preferInstitution}. No other board is substituted.`}
+        </div>
+      )}
       <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 px-1 text-xs text-muted" aria-label="Key">
         <li className="flex items-center gap-1"><span className="inline-block h-2 w-3 rounded-[1px] bg-[#e9e2d4]" />sent</li>
         <li className="flex items-center gap-1"><span className="inline-block h-2 w-3 rounded-[1px] bg-[#8b5cf6]" />reply (colour = what came back)</li>

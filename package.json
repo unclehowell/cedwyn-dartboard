@@ -92,6 +92,8 @@
     "globals": "^15.15.0",
     "playwright": "^1.62.0",
     "prettier": "^3.4.0",
-    "typescript-eslint": "^8.56.1"
+    "typescript-eslint": "^8.56.1",
+    "@cloudflare/vite-plugin": "1.69.1",
+    "wrangler": "4.163.0"
   }
 }

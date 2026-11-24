@@ -1,0 +1,52 @@
+name: Dartboard CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dartboard-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install committed dependency lockfile
+        run: npm ci
+      - name: Type-check
+        run: npm run typecheck
+      # The scripts test glob includes parent app-builder fixture tests
+      # not part of this dedicated Dartboard repository (.grok/ and
+      # template source are intentionally not copied into split app repos).
+      - name: Application unit tests
+        run: >-
+          node --experimental-strip-types --test
+          src/lib/app-data/app-data.test.ts
+          src/lib/app-data/readiness-schedule.test.ts
+          src/lib/auth/gate-identity.test.ts
+          src/lib/auth/sign-in-gate.test.ts
+          src/lib/preview-path-prefix.test.ts
+          src/lib/legal-routes.test.ts
+      - name: Production Worker build
+        run: npm run build
+      - name: Upload the deployable Worker bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: dartboard-worker-build
+          path: dist/
+          if-no-files-found: error
+          retention-days: 3
