@@ -276,7 +276,7 @@
         "partial": 1,
         "pending": 0,
         "noreply": 3,
-        "unreviewed": 2,
+        "unreviewed": 3,
         "requester_closed": 1,
         "acknowledged_only": 3
       },
@@ -285,7 +285,7 @@
         {
           "k": "Requests made (FOI / EIR / SAR)",
           "state": "done",
-          "v": "14"
+          "v": "12"
         },
         {
           "k": "Internal review asked",
@@ -328,12 +328,20 @@
           "status": "Response received 6 Nov in three encrypted parts; contents unread."
         },
         {
-          "ref": "F261029 / F261030",
-          "item": "EIR and FOI requests for first-registration and amalgamation documents (20 Oct)",
+          "ref": "F261029 (EIR)",
+          "item": "Environmental Information Regulations request for first-registration and amalgamation documents (20 Oct)",
           "due": "Tue 17 Nov 2026",
-          "rule": "EIR reg 5(2) / FOIA s10(1): 20 working days",
-          "next": "Read both PDFs, keep the separate F260213.pdf distinct, then reconcile the response against each request before deciding whether an internal review is needed.",
-          "status": "Response received 12 Nov; PDFs unread/unreconciled."
+          "rule": "EIR reg 5(2): 20 working days",
+          "next": "Read the PDF response and reconcile the EIR request before deciding whether an internal review is needed.",
+          "status": "Response received 12 Nov; PDF unread/unreconciled."
+        },
+        {
+          "ref": "F261030 (FOI)",
+          "item": "Freedom of Information request for first-registration and amalgamation documents (20 Oct)",
+          "due": "Tue 17 Nov 2026",
+          "rule": "FOIA s10(1): 20 working days",
+          "next": "Read the PDF response and reconcile the FOI request before deciding whether an internal review is needed.",
+          "status": "Response received 12 Nov; PDF unread/unreconciled."
         },
         {
           "ref": "WA231076 / WA240304 historical enquiry",
@@ -8190,29 +8198,6 @@
     {
       "institution": "hmlr",
       "institutionName": "HM Land Registry",
-      "type": "EIR / FOI",
-      "subject": "Environmental Information Regulations 2004 — F261029 / Freedom of Information request — F261030",
-      "refs": [
-        "F261029",
-        "F261030"
-      ],
-      "sent": "2026-10-20",
-      "due": "2026-11-17",
-      "rule": "20 working days",
-      "status": "unreviewed",
-      "late": false,
-      "outcome": "Response received 12 Nov; PDFs unread/unreconciled",
-      "firstReply": "2026-10-23",
-      "note": "23 Oct acknowledgement; 12 Nov response attached Response for F261029 and F261030.pdf and F260213.pdf. Attachments not yet read; no disclosure outcome assigned. Keep the F260213 PDF separate.",
-      "why": [
-        "unreviewed"
-      ],
-      "whyEvidence": [],
-      "threadUrl": "https://email.bucklerfamily.estate/reference/1a168c69031bff64"
-    },
-    {
-      "institution": "hmlr",
-      "institutionName": "HM Land Registry",
       "type": "Records enquiry",
       "subject": "Historical research enquiry — 1971 Ordnance Survey alteration and first registrations WA231076 / WA240304",
       "refs": [
@@ -8321,9 +8306,53 @@
       ],
       "whyEvidence": [],
       "threadUrl": "https://email.bucklerfamily.estate/reference/1a20c9e8671cd4d9"
+    },
+    {
+      "institution": "hmlr",
+      "institutionName": "HM Land Registry",
+      "sent": "2026-10-20",
+      "due": "2026-11-17",
+      "rule": "20 working days",
+      "status": "unreviewed",
+      "late": false,
+      "outcome": "Response received 12 Nov; PDF unread/unreconciled",
+      "firstReply": "2026-10-23",
+      "note": "23 Oct acknowledgement; 12 Nov response attached Response for F261029 and F261030.pdf and F260213.pdf. The relevant PDF has not yet been read; no disclosure outcome assigned. Keep F260213.pdf separate.",
+      "why": [
+        "unreviewed"
+      ],
+      "whyEvidence": [],
+      "threadUrl": "https://email.bucklerfamily.estate/reference/1a168c69031bff64",
+      "type": "EIR",
+      "subject": "Environmental Information Regulations request — F261029",
+      "refs": [
+        "F261029"
+      ]
+    },
+    {
+      "institution": "hmlr",
+      "institutionName": "HM Land Registry",
+      "sent": "2026-10-20",
+      "due": "2026-11-17",
+      "rule": "20 working days",
+      "status": "unreviewed",
+      "late": false,
+      "outcome": "Response received 12 Nov; PDF unread/unreconciled",
+      "firstReply": "2026-10-23",
+      "note": "23 Oct acknowledgement; 12 Nov response attached Response for F261029 and F261030.pdf and F260213.pdf. The relevant PDF has not yet been read; no disclosure outcome assigned. Keep F260213.pdf separate.",
+      "why": [
+        "unreviewed"
+      ],
+      "whyEvidence": [],
+      "threadUrl": "https://email.bucklerfamily.estate/reference/1a168c69031bff64",
+      "type": "FOI",
+      "subject": "Freedom of Information request — F261030",
+      "refs": [
+        "F261030"
+      ]
     }
   ],
-  "count": 260,
+  "count": 261,
   "targetedAddendaThrough": "2026-11-24",
   "coverageNote": "Historical request-status baseline remains 21 October 2026. Targeted HMLR and National Archives addenda through 24 November are included; all other institutions and requests still require full source reconciliation."
 }
