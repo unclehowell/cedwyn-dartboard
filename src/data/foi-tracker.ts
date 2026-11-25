@@ -34,7 +34,7 @@ export type TrackerRow = {
 export type NotableItem = { institution: string; ref: string; status: string; detail: string };
 
 export const trackerSummary = {
-  "generated": "2026-11-24",
+  "generated": "2026-11-25",
   "mailboxThrough": "18 October 2026",
   "institutions": 39,
   "threads": 260,
@@ -64,11 +64,11 @@ export const trackerSummary = {
     "Complaint": 12,
     "Records request": 7
   },
-  "targetedAddendaThrough": "2026-11-24",
-  "coverageNote": "Base tracker remains through 18 October 2026. Targeted HMLR and TNA updates are included through 24 November; other institutions have not been fully refreshed."
+  "targetedAddendaThrough": "2026-11-25",
+  "coverageNote": "Base tracker remains through 18 October 2026. Targeted HMLR and TNA updates are included through 25 November; other institutions have not been fully refreshed."
 } as const;
 
-export const trackerMethod = "Base tracker built on 19 October 2026 from the family mailbox through 18 October 2026, cross-checked against the wiki correspondence pages (greathousefarmwiki.wordpress.com, pages 5356–5374). One row is one conversation with one institution: the email thread, plus any thread sharing its official reference number or subject. Deadlines are computed, not quoted: 20 working days for FOI and EIR (England and Wales bank holidays from 2019), one calendar month for subject access; an authority’s stated date takes precedence where recorded. Outcome and exemption labels are mechanical readings of the institution’s own words, not findings. Targeted HMLR and TNA addenda through 24 November 2026 are included in the tracker rows; other institutions and the remaining correspondence have not been fully refreshed. The base mailboxThrough date therefore remains 18 October 2026. No email addresses, phone numbers or other contact details are included. Officials are not named; institutions and official reference numbers only. Contested history is attributed to the named source or marked SOURCE PENDING.";
+export const trackerMethod = "Base tracker built on 19 October 2026 from the family mailbox through 18 October 2026, cross-checked against the wiki correspondence pages (greathousefarmwiki.wordpress.com, pages 5356–5374). One row is one conversation with one institution: the email thread, plus any thread sharing its official reference number or subject. Deadlines are computed, not quoted: 20 working days for FOI and EIR (England and Wales bank holidays from 2019), one calendar month for subject access; an authority’s stated date takes precedence where recorded. Outcome and exemption labels are mechanical readings of the institution’s own words, not findings. Targeted HMLR and TNA addenda through 25 November 2026 are included in the tracker rows; other institutions and the remaining correspondence have not been fully refreshed. The base mailboxThrough date therefore remains 18 October 2026. No email addresses, phone numbers or other contact details are included. Officials are not named; institutions and official reference numbers only. Contested history is attributed to the named source or marked SOURCE PENDING.";
 
 /** Checked by hand against the mailbox on 19 October 2026. */
 export const notableItems: NotableItem[] = [
@@ -131,18 +131,18 @@ export const trackerRows: TrackerRow[] = [
     "requestDate": "",
     "statutoryDeadline": "",
     "regime": "Archive research enquiry; no statutory clock",
-    "sent": 0,
+    "sent": 1,
     "replies": 1,
     "substantiveReplies": 1,
     "firstSubstantiveReply": "2026-11-24",
-    "latestReply": "2026-11-24",
+    "latestReply": "2026-11-25",
     "outcomeAuto": "Research guidance; original claim/order not identified",
     "exemptionsAuto": "",
-    "status": "Information received — research guidance",
+    "status": "Research guidance received; follow-up sent",
     "possibleReplyElsewhere": "",
-    "lastActivity": "2026-11-24",
+    "lastActivity": "2026-11-25",
     "threadUrl": "https://email.bucklerfamily.estate/reference/1a20c9e8671cd4d9",
-    "note": "TNA conditionally identifies J 88/21 (1955 cause-book index) and J 87/147 (1955 cause book) if proceedings commenced in 1955. It points to ASSI 78/3 or ASSI 78/4 for Cardiff District Registry records and states that no other records survive. This is research guidance, not proof that the original claim or order has been located; 4 July 1955 remains the possession date recited in the later judgment, not a verified hearing/order date."
+    "note": "TNA guidance identifies J 88/21 as the 1955 cause-book index and conditionally points to J 87/149 as the 1955 cause book if proceedings commenced in that year. J 87/147 is the 1954 volume and must not be presented as the 1955 cause book. TNA also points to ASSI 78/3 and ASSI 78/4 for Cardiff District Registry records. These are catalogue leads, not proof that the original claim or order has been located. The 4 July 1955 date remains the possession date recited in the later judgment, not a verified hearing/order date. Follow-up sent 25 November asks TNA to clarify its catalogue references; no paid copies, visit or offline action is authorised. All remaining avenues are to be pursued remotely through proportionate FOI/EIR, SAR, internal review and complaint routes, without duplicate requests or reopening withdrawn tracks."
   },
   {
     "id": "hmlr-2026-11-21-7000146",
