@@ -1,0 +1,96 @@
+name: Site snapshot (static copy for bucklerfamily.estate/dartboard/)
+# Plan for unclehowell/cedwyn#431 (REPO SPLIT step 3b). Manual dispatch only: nothing runs on a schedule, and no
+# Cloudflare route or Worker is touched here. It writes the `site` branch that the path Worker bfe-dartboard would
+# serve at bucklerfamily.estate/dartboard/. The copy goes through the same guards the Cedwyn site build applies to
+# this theme (link rewrite, self-contained pass, privacy scrub, outbound-link guard) and nothing is committed unless
+# every guard passes. Normal push, never force. — Sion's Tab agent
+on:
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: Live app origin to copy (read-only GET crawl)
+        default: https://dartboard.righteous.workers.dev/
+        required: true
+      cedwyn_ref:
+        description: unclehowell/cedwyn ref whose tools/ run the guards
+        default: main
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: site-snapshot
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ORIGIN: ${{ inputs.origin }}
+      CEDWYN_REF: ${{ inputs.cedwyn_ref }}
+    steps:
+      - name: Cedwyn guard tools (read-only, shallow)
+        run: |
+          git clone -q --depth 1 --branch "$CEDWYN_REF" https://github.com/unclehowell/cedwyn.git cw
+          echo "CEDWYN_SHA=$(git -C cw rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Crawl the live app (same wget flags as cedwyn tools/assemble.py crawl())
+        run: |
+          mkdir -p tmp dist
+          wget -q -e robots=off --mirror --level=3 --page-requisites --adjust-extension --convert-links=off --no-parent \
+            --restrict-file-names=windows --timeout=20 --tries=4 --waitretry=20 --retry-on-http-error=429,503 --quota=150m \
+            -U 'Mozilla/5.0 cedwyn-archive' -P tmp "$ORIGIN" || echo "wget exit $? (missing files are checked below)"
+          host=$(printf '%s' "$ORIGIN" | cut -d/ -f3)
+          test -f "tmp/$host/index.html"
+          cp -r "tmp/$host" dist/dartboard
+      - name: Section database under its real name
+        # The origin sends no content type for _db/section.sqlite, so wget saves it as section.sqlite.html and the
+        # page's <link rel=alternate type=application/vnd.sqlite3 href=/dartboard/_db/section.sqlite> has no file.
+        run: |
+          rm -f dist/dartboard/_db/section.sqlite.html
+          mkdir -p dist/dartboard/_db
+          curl -fsSL -A 'Mozilla/5.0 cedwyn-archive' -o dist/dartboard/_db/section.sqlite "${ORIGIN%/}/_db/section.sqlite"
+          head -c 15 dist/dartboard/_db/section.sqlite | grep -q 'SQLite format 3'
+      - name: Guards (as the Cedwyn site build runs them for this theme)
+        run: |
+          python3 cw/tools/rewrite.py dist
+          python3 cw/tools/selfcontain.py dist --fix --only=dartboard
+          python3 cw/tools/privacy_scrub.py dist
+          python3 cw/tools/check_links.py dist --fix
+          python3 cw/tools/check_links.py dist
+          python3 cw/tools/selfcontain.py dist --fix --no-fill --only=dartboard
+          python3 cw/tools/selfcontain.py dist --only=dartboard
+      - name: Header and file checks (fail closed)
+        run: |
+          i=dist/dartboard/index.html
+          grep -q '/_cedwyn/ghf/basecamp.js' "$i"
+          grep -q '/_cedwyn/ghf/ghf-boot.js' "$i"
+          head -c 15 dist/dartboard/_db/section.sqlite | grep -q 'SQLite format 3'
+          # every root-absolute path outside /dartboard/ stays on the apex router; list them for the 390 px check
+          grep -rhoaE '(href|src)="/[^"]*"' dist/dartboard --include='*.html' | sed -E 's/^(href|src)="//; s/"$//' \
+            | grep -v '^/dartboard/' | sort -u > SHARED-PATHS.txt
+          wc -l SHARED-PATHS.txt
+      - name: Commit to the site branch (only when something changed)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$url" site >/dev/null; then
+            git clone -q --depth 1 --branch site "$url" out
+          else
+            git init -q out && git -C out checkout -q --orphan site && git -C out remote add origin "$url"
+          fi
+          find out -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r dist/dartboard/. out/
+          cp SHARED-PATHS.txt out/SHARED-PATHS.txt
+          python3 - <<'PY'
+          import json, os, pathlib, datetime
+          files = [p for p in pathlib.Path('out').rglob('*') if p.is_file() and '.git' not in p.parts]
+          json.dump({'origin': os.environ['ORIGIN'], 'cedwyn_tools': os.environ.get('CEDWYN_SHA', ''),
+                     'taken_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+                     'files': len(files), 'bytes': sum(p.stat().st_size for p in files)},
+                    open('out/SNAPSHOT.json', 'w'), indent=1)
+          PY
+          git -C out add -A
+          if git -C out diff --cached --quiet -- . ':!SNAPSHOT.json'; then echo "no content change"; exit 0; fi
+          git -C out -c user.name='cedwyn-site-snapshot' -c user.email='actions@users.noreply.github.com' \
+            commit -q -m "Site snapshot of ${ORIGIN} (guards from cedwyn@${CEDWYN_SHA:0:7}) — Sion's Tab agent"
+          git -C out push -q origin site
