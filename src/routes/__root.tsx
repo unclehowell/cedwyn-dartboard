@@ -26,7 +26,8 @@ function BasecampAfterHydration() {
   return null;
 }
 
-const APP_NAME = "Disclosure Rings";
+// 17 Nov 2026: the app is "Disclosure Dartboard" in the navigator, on the home tiles and on the share card; the tab title now matches. — Claude agent
+const APP_NAME = "Disclosure Dartboard";
 
 export const Route = createRootRoute({
   head: () => ({
